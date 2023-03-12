@@ -1,0 +1,141 @@
+@import '../../../assets/styling/principles/variables';
+
+.project-tile {
+    width: 100%;
+    // height: 176px;
+    // margin: 0 16px 0 0;
+    padding: 16px 16px 24px 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 34px 0 rgba(243, 243, 243, 0.5);
+    border: solid 1.1px #f0f0f0;
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    cursor: pointer;
+
+    &:hover {
+        border: solid 1.1px hsl(0, 0%, 79%);
+
+    }
+
+    .icon {
+        width: 32px;
+        height: 32px;
+        background-color: #6f74df;
+        border-radius: 20px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 12px;
+
+
+
+        font-family: 'HelveticaNeue';
+        font-size: 10px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #fff;
+
+
+    }
+
+    .top-menu-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+
+        .shape-container {
+            width: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+
+
+        }
+    }
+
+
+    .project-identifier-text {
+        width: 203px;
+        height: 17px;
+        margin: 20px 150px 4px 0;
+        font-family: $fusion-family;
+        font-size: 14px;
+        font-weight: 300;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #89909e;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .project-name {
+        width: 118px;
+        height: 22px;
+        font-family: 'HelveticaNeue';
+        font-size: 18px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #3c3c3c;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .Device {
+
+        width: fit-content;
+        height: 17px;
+        margin: 6px 212px 0 0;
+        padding: 2px 7px 3px;
+        border-radius: 9.3px;
+        background-color: #eceef2;
+
+
+
+        font-family: $fusion-family;
+        font-size: 10px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #6b6f7c;
+    }
+
+}
+
+
+.dflex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.-Projects {
+    height: 12px;
+    margin: 4.2px 0 1.9px 8px;
+    font-family: 'HelveticaNeue';
+    font-size: 10px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #454545;
+}

@@ -1,0 +1,111 @@
+<div class="main-screen">
+    <app-sidebar></app-sidebar>
+    <div class="main-screen-content">
+        <div class="project-side-bar" *ngIf="commonService.showSideBar">
+            <div class="project-name-container" (click)="showDropDownContainer($event)">
+                <div class="project-name-icon-container">
+                    <!-- for showing project platform type logo  -->
+                    <!-- <img *ngIf="commonService.selectedProject.p_platformType== 'ios'" src="../../../assets/icons/icons-projects-i-os.svg" class="icon" />
+                    <img *ngIf="commonService.selectedProject.p_platformType == 'android'" src="../../../assets/icons/android-icon.png" class="icon" /> -->
+                    <div class="icon">
+                        PR
+                    </div>
+                    <div class="name">
+                        <div class="project-name">
+                            {{ commonService.selectedProject.p_title}}
+                        </div>
+                        <div class="project-detail-env">
+                            {{commonService.selectedProject.p_platformType}},
+                            {{
+                            commonService.selectedProject.p_environment
+                            }}
+                        </div>
+                    </div>
+                </div>
+                <img src="../../../assets/icons/icons-carrot-default-updown.svg">
+                <!-- <svg width="12" height="13" viewBox="0 0 12 13" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M5.985 13 1.223 8.711a.503.503 0 1 1 .665-.745l4.097 3.675 4.127-3.675a.503.503 0 1 1 .665.745L5.985 13zm4.43-7.836a.463.463 0 0 1-.303-.13L5.985 1.349 1.888 5.034a.493.493 0 0 1-.705 0 .483.483 0 0 1 0-.705L5.985 0l4.762 4.289a.483.483 0 0 1 0 .704.503.503 0 0 1-.333.171z"
+                        fill="#4F4F4F" fill-rule="nonzero" />
+                </svg> -->
+
+            </div>
+            <div class="projects-dropdown-container" *ngIf="showDropDown">
+
+                <div class="project">PROJECTS</div>
+
+
+                <div *ngFor="let project of allProjects">
+                    <div class="project-tile" (click)="onSelectProject(project)" [ngClass]="{active: project.p_kuid==selectedProject.p_kuid}">
+                        <div class="icon">
+                            <img  src="../../../assets/icons/apple.png" *ngIf="project.p_platformType=='ios'" class="project-icon" />
+                            <img  src="../../../assets/icons/android-icon.png" *ngIf="project.p_platformType=='android'" class="project-icon" />
+                        </div>
+                        <div class="name">
+                            <div class="project-name">
+                                {{ project.p_title}}
+                            </div>
+                    
+                            <div class="project-detail-env">
+                                {{project.p_platformType}},
+                                {{
+                                project.p_environment
+                                }}
+                          </div>
+                        </div>
+                        <img src="../../../assets/icons/material-symbols-check-small-rounded_blue.svg" *ngIf="project.p_kuid==selectedProject.p_kuid" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="flex-col">
+                <div>
+                    <div class="project-side-bar-inner">
+                        <div class="project-seaction-tile">
+                            <div class="project-side-bar-item" [ngClass]="{ active: tab == 200 }" (click)="onSelectTab(200)">
+                                <img class="icon" src="../../../assets/icons/home_active.png" *ngIf="tab==200" />
+                                <img class="icon" src="../../../assets/icons/home.png" *ngIf="tab!==200" />
+                                <div class="name">
+                                    Overview
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-side-bar-inner" *ngFor="let tile of sidebarLiElements">
+                        <div class="seaction-tile">{{tile.title}}</div>
+                        <div class="project-seaction-tile" *ngFor="let item of tile.items ">
+                            <div class="project-side-bar-item" [ngClass]="{ active: tab == item.id }" (click)="onSelectTab(item.id)">
+                                <img class="icon" [src]="item.active_icon" *ngIf="tab==item.id" />
+                                <img class="icon" [src]="item.icon" *ngIf="tab!==item.id" />
+                                <div class="name">
+                                    {{ item.title }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-side-bar-inner">
+
+                    <div class="project-setting-seaction">
+                        <div class="project-side-bar-item" [ngClass]="{ active: tab == 100 }" (click)="onSelectTab(100)">
+                            <img class="icon" src="../../../assets/icons/icon-s-idebar-settings-active-blue.svg" *ngIf="tab==100" />
+                            <img class="icon" src="../../../assets/icons/icon-s-idebar-settings-idle-pure.svg" *ngIf="tab!==100" />
+                            <div class="name">
+                                Project Settings
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="router-container" [ngClass]="{ active: !commonService.showSideBar }">
+            <app-headerbar *ngIf="commonService.showSideBar"></app-headerbar>
+
+            <div class="container">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

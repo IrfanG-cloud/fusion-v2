@@ -1,0 +1,213 @@
+<div class="container-wrapper">
+    <div class="heading">
+        Billings
+    </div>
+    <div class="sub-heading">
+        You can find all workspace settings here
+    </div>
+
+    <div class="Rectangle-container">
+        <div class="Project-Details">
+            Professional Plan
+        </div>
+        <div class="sub-heading">For indiviuals and small teams</div>
+
+        <div class="bugs-containers">
+
+            <div class="card">
+                <div class="innercard">
+                    <div class="Oval">
+                        <img src="../../../../../../../assets/filters/i-os-icon-small-users.svg">
+                    </div>
+
+                    <div class="title-card">
+                        Users
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div class="number">20/50</div>
+                    <div class="avatars">
+                        <!-- Avatar item -->
+                        <div class="avatars__item" *ngFor="let i of [1,2]">
+                            <div class="avatars__image">
+                                <img src="../../../../../../../assets/images/avatar.png" class="avatar-image" />
+                            </div>
+                        </div>
+                        <div class="avatars-item-back">
+                            <div class="avatars__image">
+                                <div class="avatar-image-last">
+                                    +8
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="innercard">
+                    <div class="Oval">
+                        <img src="../../../../../../../assets/filters/i-os-icon-small-desktop.svg">
+                    </div>
+
+                    <div class="title-card">
+                        Projects
+                    </div>
+                </div>
+                <span class="number">20<span class="number-small">/100</span></span>
+            </div>
+
+            <div class="card">
+                <div class="innercard">
+                    <div class="Oval">
+                        <img src="../../../../../../../assets/filters/i-os-icon-small-occurences.svg">
+                    </div>
+
+                    <div class="title-card">
+                        Disk Usage
+                    </div>
+                </div>
+                <span class="number">20<span class="number-small">GB Remaining</span></span>
+            </div>
+
+            <div class="card">
+                <div class="innercard">
+                    <div class="Oval">
+                        <img src="../../../../../../../assets/filters/i-os-icon-small-project.svg" width="16" height="16">
+                    </div>
+
+                    <div class="title-card">
+                        Sessions
+                    </div>
+                </div>
+                <span class="number">20<span class="number-small">Active Sessions</span></span>
+            </div>
+        </div>
+
+        <div class="Rectangle-alter">
+            <div class="flex">
+                <div class="inner-flex">
+                    <img class="idle" src="../../../../../../../assets/filters/icon-s-idebar-quality-management-idle.svg">
+                    <div class="inner">
+                        <div class="payment">Payment Expires</div>
+                        <div class="lorem">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</div>
+                    </div>
+                </div>
+                <div class="reactivate">Reactivate</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Rectangle-container">
+        <div class="Project-Details">
+            Billing History
+        </div>
+
+        <div class="list-container">
+            <div class="list-headers">
+                <div class="list-header-content-container">
+                    DATE
+                </div>
+                <div class="list-header-content-container">
+                    Amount
+                </div>
+                <div class="list-header-content-container">
+                    Description
+                </div>
+                <div class="list-header-content-container">
+                    Invoice
+                </div>
+            </div>
+
+            <div class="list-tile" *ngFor="let member of [1,2,3,4]">
+                <div class="content">
+                    12 Jan 2022
+                </div>
+                <div class="content-USD">
+                    USD 20,000.00
+                </div>
+                <div class="list-tile-status-widget">
+                    Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit..
+                </div>
+
+                <div class="list-tile-icon">
+                    View
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ------------------------Billing Plan-------------------------------------------------------- -->
+    <!-- <div class="container-wrapper">
+        <div class="heading">
+            Billings
+        </div>
+        <div class="sub-heading">
+            You can find all workspace settings here
+        </div>
+
+        <div class="Rectangle-container">
+            <div class="Project-Details">
+                Plans
+            </div>
+            <div class="flex-block">
+                <div class="block">
+                    <div class="plan-name">Free Plan</div>
+                    <div class="description">For indiviuals and small teams</div>
+                    <div class="price"><sup>$</sup>0</div>
+                    <div class="package-month">per month / Per user</div>
+                    <div class="feature-block">
+                        <div class="includes">Includes</div>
+                        <div class="feature" *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
+                            <div class="">Feature 1</div>
+                        </div>
+                    </div>
+                    <div class="save-btn">
+                        <div class="Save-Changes">
+                            Upgrade
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <div class="plan-name">Professional Plan</div>
+                    <div class="description">For small teams & Organisation</div>
+                    <div class="price"><sup>$</sup>12</div>
+                    <div class="package-month">per month / Per user</div>
+                    <div class="feature-block">
+                        <div class="includes">Includes</div>
+                        <div class="feature" *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
+                            <div class="">Feature 2</div>
+                        </div>
+                    </div>
+                    <div class="save-btn">
+                        <div class="Save-Changes">
+                            Upgrade
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <div class="plan-name">Enterprise Plan</div>
+                    <div class="description">For big Corporations & Enterprises</div>
+                    <div class="price"><sup>$</sup>50</div>
+                    <div class="package-month">per month / Per user</div>
+                    <div class="feature-block">
+                        <div class="includes">Includes</div>
+                        <div class="feature" *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
+                            <div class="">Feature 3</div>
+                        </div>
+                    </div>
+                    <div class="save-btn">
+                        <div class="Save-Changes">
+                            Upgrade
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->

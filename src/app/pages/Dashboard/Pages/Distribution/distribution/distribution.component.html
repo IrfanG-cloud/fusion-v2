@@ -1,0 +1,173 @@
+<div class="container">
+
+    <div>
+        <div class="top-heading">Distribute Management
+            <div class="flex-row">
+                <div class="btn-manage"><img src="../../../../../../assets/icons/icon-s-idebar-settings-active.svg"> Manage Users</div>
+                <div class="btn-upload-APK"><img src="../../../../../../assets/icons/icon-s-idebar-add-idle.svg"> Upload APK</div>
+            </div>
+        </div>
+        <!-- <div class="search-header">
+            <div class="search-bar"></div>
+
+        </div> -->
+        <div class="filters-bar-container">
+            <div class="flex-row">
+                <div class="search-bar">
+                    <input type="text" name="search" placeholder="Search Issues" class="search-input" />
+                </div>
+
+            </div>
+            <div class="flex-row">
+                <div class="filters-options" (click)="isShowFiltercontainer()">
+                    <img src="../../../../.././../assets/icons/filter-icon.png" class="filter-icon" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="feature-intro-general-wrapper">
+            <div class="content-center" *ngIf="!showDistribution">
+                <div class="hello-icon"></div>
+                <div class="feature-heading">
+                    Welcome to <br> Fusion Distribution Management
+                </div>
+                <p class="feature-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet urna quam. Donec sodales lectus erat. Interdum et malesuada fames ac ante ipsum primis
+                    in
+                    faucibus.
+                    Morbi ac nulla dictum, interdum lectus sed, eleifend sem.
+                </p>
+                <div class="btn-secandry" (click)="showDistribution=true">Get Started</div>
+            </div>
+
+            <div *ngIf="showDistribution">
+                <div class="main-list">
+                    <div class="list-container">
+                        <div class="list-headers">
+
+                            <div class="list-header-content-container">
+                                VERSION
+                            </div>
+                            <div class="list-header-content-container">
+                                USERS
+                            </div>
+                            <div class="list-header-content-container">
+                                GROUP
+                            </div>
+                            <div class="list-header-content-container">
+                                RELEASE NOTES
+                            </div>
+
+                            <div class="right-icon-container">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+
+                    <div class="list-tile" *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+                        <div class="list-tile-data">
+                            <div class="list-tile-data-text">V3.0.0</div>
+                        </div>
+                        <div class="list-tile-data">
+                            <div class="list-tile-data-text">20,000.00</div>
+                        </div>
+                        <div class="list-tile-data1">
+                            <div class="list-tile-data-text1">Developers
+                            </div>
+                            <div class="list-tile-data-text1">PB Employees</div>
+                            <div class="number">+2</div>
+
+                        </div>
+                        <div class="list-tile-data">
+                            <div class="list-tile-status-widget">View</div>
+                        </div>
+
+                        <div class="right-icon-container" [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
+                            <div class="list-tile-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                    <g fill="none" fill-rule="evenodd">
+                                        <path d="M0 0h16v16H0z" />
+                                        <path
+                                            d="M4 9.333c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 2.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.941.391c.262.261.392.575.392.942s-.13.68-.392.941c-.26.262-.574.392-.941.392zm4 0c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 6.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941A1.284 1.284 0 0 1 8 9.333zm4 0c-.367 0-.68-.13-.942-.392A1.283 1.283 0 0 1 10.667 8c0-.367.13-.68.391-.942.261-.26.575-.391.942-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941a1.284 1.284 0 0 1-.942.392z"
+                                            fill="#000" fill-rule="nonzero" />
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <mat-menu #menu="matMenu">
+                            <div class="title" mat-menu-item (click)="showDetails()">
+                                <!-- <mat-icon></mat-icon> -->
+                                <div style="font-family: 'HelveticaNeue-Medium';" class="menu-title">View Details</div>
+                            </div>
+                            <div class="Divider"></div>
+
+                            <div class="title" mat-menu-item (click)="showReleases()">
+                                <!-- <mat-icon></mat-icon> -->
+                                <div style="font-family: 'HelveticaNeue-Medium';" class="menu-title">View In Releases</div>
+                            </div>
+                            <div class="Divider"></div>
+
+                            <div class="title" mat-menu-item (click)="showShare()">
+                                <!-- <mat-icon></mat-icon> -->
+                                <div style="font-family: 'HelveticaNeue-Medium';" class="menu-title">Share</div>
+                            </div>
+                        </mat-menu>
+                    </div>
+
+                    <div class="sidepanel" [ngClass]="{active: sidePanelOpen}">
+                        <div class="content-panel">
+                            <div class="closebtn" (click)="sidePanelOpen=!sidePanelOpen">&times;</div>
+                            <div class="top-containers">
+                                <div class="Activity-History">
+                                    V 3.0.0 (112)
+                                </div>
+
+                                <div class="filters-bar">
+                                    <div class="filter-tile" (click)="onSelectTab(filter.id, filter.name)" *ngFor="let filter of filtersOptions"
+                                        [ngClass]="{ active: tab == filter?.id }">
+                                        {{ filter.name }}
+                                    </div>
+                                </div>
+
+                                <div class="list-container">
+                                    <div class="list-headers1">
+
+                                        <div class="list-header-content-container">
+                                            NAME
+                                        </div>
+                                        <div class="list-header-content-container">
+                                            EMAIL
+                                        </div>
+                                        <div class="list-header-content-container">
+                                            ACTION
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="divider"></div>
+
+                                <div class="list-tile1" *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+                                    <div class="list-tile-data">
+                                        <div class="list-tile-data-text">Matilda Evans</div>
+                                    </div>
+                                    <div class="list-tile-data">
+                                        <div class="list-tile-data-text">someone@mail.com</div>
+                                    </div>
+
+                                    <div class="list-tile-data">
+                                        <div class="list-tile-status-widget1">Remove</div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

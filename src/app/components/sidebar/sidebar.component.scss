@@ -1,0 +1,441 @@
+@import "./../../../assets/styling/principles/variables";
+
+.sidebar-container {
+    width: 52px;
+    height: 100vh;
+    background-color: #000000;
+    // border-right: 0.2rem solid #ececec;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+}
+
+.inner-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background-color: $blue-100;
+    display: flex;
+    margin: 1rem;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.home-icon {
+    width: 52px;
+    height: 46px;
+    margin: 12px 0 0px;
+    display: grid;
+    place-items: center;
+    // padding: 11px 14px 11px;
+    cursor: pointer;
+}
+
+.bottom-icons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    cursor: pointer;
+
+    .mt-2 {
+        margin-top: 1rem;
+    }
+
+    .user-avatar {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 4rem;
+        object-fit: cover;
+    }
+}
+
+::ng .mat-menu-content {
+    background-color: green;
+}
+
+.Workspace-container {
+    width: 254px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+    .user-title {
+        font-size: $font-size-14;
+        font-weight: 500;
+    }
+
+    .tag {
+        width: 56px;
+        height: 21px;
+        margin: 4px 0 1px 6px;
+        padding: 3px 10px;
+        border-radius: 8px;
+        background-color: #eceef2;
+    }
+}
+
+.workspace-tile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    height: 6rem;
+    padding-left: 1rem;
+
+    &.active {
+
+        .done-icon {
+            display: flex;
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    .done-icon {
+        display: hidden;
+        width: 0rem;
+        height: 0rem;
+    }
+
+    .workspace-label {
+        margin-left: 1rem;
+        max-width: 70%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .workspace-icon {
+        background-color: $workspace-color;
+        color: $white;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .workspace-title {
+        font-size: $font-size-14;
+        font-weight: 600;
+    }
+
+    .members {
+        font-size: 12px;
+    }
+}
+
+.workspace-tile-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    height: 7rem;
+    width: 24rem;
+    background-color: rgb(255, 255, 255);
+    padding: 0px 0rem 0px 1.8rem;
+
+    .workspace-label {
+        margin-left: 0.7rem;
+        max-width: 20rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .workspace-icon {
+        background-color: $workspace-color;
+        color: $white;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .workspace-title {
+        font-size: $font-size-18;
+        font-weight: 600;
+    }
+
+    .members {
+        font-size: 12px;
+    }
+}
+
+.Divider-container {
+    width: 243px;
+    height: 1px;
+    background-color: #f4f4f4;
+}
+
+.project-side-bar {
+    background-color: #ff0000;
+    width: 10vw;
+    height: 100vh;
+}
+
+.workspace-dialoag {
+    position: fixed;
+    z-index: 1;
+    top: 6px;
+    left: 50px;
+    width: 0;
+    height: 0;
+    // transition: height .2s, width .2s, transform .5s;
+    // transition-timing-function: ease-out;
+
+
+    &.active {
+        width: 335px;
+        height: fit-content;
+        margin: 0 0 0 1px;
+        padding: 9px 0 13px;
+        border-radius: 12px;
+        box-shadow: 0 2px 30px 0 rgba(198, 198, 198, 0.5);
+        border: solid 1px #f0f0f0;
+        background-color: $white;
+
+
+        .workspace-list {
+            .workspace-list-tile {
+                width: 318px;
+                height: 76px;
+                margin: 0 7px 11px 10px;
+                padding: 10px 27px 6px 10px;
+                border-radius: 12px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $grey-020;
+                }
+
+                &.active {
+                    background-color: #f7f9fb;
+                }
+
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+
+
+
+                .image-mask {
+                    width: 56px;
+                    height: 56px;
+                    margin: 0 14px 4px 0;
+                    border-radius: 12px;
+                    object-fit: cover;
+                }
+
+                .info-tile {
+                    .title {
+                        width: 188px;
+                        font-family: 'HelveticaNeue';
+                        font-size: 15px;
+                        font-weight: 500;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: normal;
+                        letter-spacing: normal;
+                        color: #494a4c;
+
+                        &.active {
+                            color: $blue-100;
+                        }
+                    }
+                }
+            }
+        }
+
+        .view-all-workspace {
+            width: 135px;
+            height: 17px;
+            font-family: 'HelveticaNeue-Medium';
+            font-size: 14px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: $blue-100;
+            margin-left: 25px;
+            cursor: pointer;
+        }
+
+        .divider {
+            width: 335px;
+            height: 1px;
+            margin: 10px 0px 10px 0;
+            border: solid 1px #eee;
+        }
+
+        .row-container {
+            display: flex;
+            flex-direction: row;
+            width: 314px;
+            height: 36px;
+            margin: 13px 11px 0 10px;
+            padding: 9px 18px 10px 8px;
+            border-radius: 8px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $grey-020;
+            }
+
+            .icon-text {
+                height: 17px;
+                margin: 0 0 0 10px;
+                font-family: 'HelveticaNeue';
+                font-size: 14px;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: var(--grey-100);
+            }
+        }
+
+
+    }
+}
+
+.user-dialoag {
+    position: fixed;
+    z-index: 1;
+    bottom: 16px;
+    left: 50px;
+
+    width: 0;
+    height: 0;
+    transition: height .2s, width .2s, transform .5s;
+    transition-timing-function: ease-out;
+
+
+    &.active {
+        width: 272px;
+        height: 330px;
+        margin: 0 6px 0 1px;
+        padding: 5px 10px 12px 11px;
+        border-radius: 12px;
+        box-shadow: 0 2px 30px 0 rgba(198, 198, 198, 0.5);
+        border: solid 1px #f0f0f0;
+        background-color: $white;
+
+
+        .user-profile-container {
+            width: 100%;
+            height: 76px;
+            padding: 10px 10px 10px 10px;
+            border-radius: 12px;
+            background-color: #f2f2f3;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+
+
+            .user-image {
+                width: 4rem;
+                height: 4rem;
+                object-fit: cover;
+                border-radius: 4rem;
+            }
+
+            .info {
+                display: flex;
+                flex-direction: column;
+                margin-left: 1rem;
+
+
+                .name {
+                    font-family: 'HelveticaNeue';
+                    font-size: 15px;
+                    font-weight: 500;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    color: $blue-100;
+                }
+
+                .email {
+                    margin: 4px 0 0px 0px;
+                    font-family: 'HelveticaNeue';
+                    font-size: 12px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    color: #656565;
+                }
+            }
+
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            margin: 10px 0px 10px 0;
+            border: solid 1px #eee;
+        }
+
+        .row-container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 36px;
+            margin: 13px 20px 0px 10px;
+            padding: 9px 18px 10px 8px;
+            border-radius: 8px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $grey-020;
+            }
+
+            .icon-text {
+                height: 17px;
+                margin: 0 0 0 10px;
+                font-family: 'HelveticaNeue';
+                font-size: 14px;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: $grey-100;
+            }
+        }
+
+
+    }
+}

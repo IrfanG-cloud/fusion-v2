@@ -1,0 +1,37 @@
+{
+  "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "editor.defaultFormatter": "vscode.typescript-language-features",
+  "editor.tabSize": 4,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "css.format.spaceAroundSelectorSeparator": true,
+  "html.format.enable": true,
+  "html.format.wrapAttributes": "auto",
+  "html.format.wrapLineLength": 180,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.format.semicolons": "insert",
+  "formatFiles.excludedFolders": [
+    "node_modules",
+    ".vscode",
+    ".angular",
+    ".git",
+    "dist",
+    ".chrome"
+  ]
+}

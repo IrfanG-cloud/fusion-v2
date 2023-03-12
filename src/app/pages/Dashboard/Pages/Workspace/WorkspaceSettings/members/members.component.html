@@ -1,0 +1,202 @@
+<div class="container-wrapper">
+    <div class="heading">
+        Members
+    </div>
+    <div class="sub-heading">
+        You can manage Members from here
+    </div>
+
+    <div class="filters-bar-container">
+
+        <div class="right-side">
+            <div class="search-bar">
+                <input type="text" name="search" placeholder="Search Member" class="search-input" />
+            </div>
+            <div class="filters-bar">
+                <div class="filter-tile" (click)="onSelectTab(filter.id)" *ngFor="let filter of filtersOptions" [ngClass]="{ active: activeTab == filter?.id }">
+                    {{ filter.name }}
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-secandry flex-row" (click)="showInviteDialog()">
+
+            <div class="plus-icon">
+                <div class="plus-text">+</div>
+            </div>
+
+            <div>Invite Member</div>
+        </div>
+
+    </div>
+
+    <div class="list-container" *ngIf="activeTab==1">
+        <div class="list-headers">
+
+            <div class="list-header-content-container">
+                NAME
+            </div>
+            <div class="list-header-content-container">
+                EMAIL
+            </div>
+            <div class="list-header-content-container">ROLE</div>
+
+        </div>
+
+        <div class="list-tile" *ngFor="let member of membersList">
+
+            <div class="content">
+                <div class="flex-row">
+                    <div class="member-avatar">
+
+                    </div>
+                    {{member.fullName}}
+                </div>
+            </div>
+            <div class="content">
+                {{member.email}}
+            </div>
+            <div class="content">
+
+                <div class="dropdown">
+                    <div class="dropbtn">{{member.role}}</div>
+                    <div class="dropdown-content">
+                        <div class="title">
+                            Access
+                        </div>
+
+                        <div class="option-container" *ngFor="let role of workspaceRole">
+
+                            <div class="display-row">
+                                <img src="../../../../../../../assets/icons/home.svg" />
+                                <div class="display-col">
+                                    <div class="content-title">{{role.Role}}</div>
+                                    <div class="content-description">
+                                        It was a humorously perilous business for both of us. For, before we proceed further.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="icon" [matMenuTriggerFor]="menuOptions">
+                <div class="list-tile-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="M0 0h16v16H0z" />
+                            <path
+                                d="M4 9.333c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 2.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.941.391c.262.261.392.575.392.942s-.13.68-.392.941c-.26.262-.574.392-.941.392zm4 0c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 6.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941A1.284 1.284 0 0 1 8 9.333zm4 0c-.367 0-.68-.13-.942-.392A1.283 1.283 0 0 1 10.667 8c0-.367.13-.68.391-.942.261-.26.575-.391.942-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941a1.284 1.284 0 0 1-.942.392z"
+                                fill="#000" fill-rule="nonzero" />
+                        </g>
+                    </svg>
+
+                </div>
+            </div>
+
+            <mat-menu #menuOptions="matMenu" class="menu-container">
+                <div class="menu-item" (click)="onRemoveMemberShip(member.memberKuid)">
+                    <mat-icon>delete</mat-icon>
+                    <!-- <div class="Rectangle-icon"></div> -->
+                    <div class="menu-item-text">Remove User</div>
+                </div>
+                <!-- <div class="Divider"></div> -->
+                <!-- <div class="menu-item">
+                    <div class="Rectangle-icon"></div>
+                    <div class="menu-item-text">Change Role</div>
+                </div> -->
+
+            </mat-menu>
+
+
+        </div>
+    </div>
+    <div class="invited-list-container" *ngIf="activeTab==2">
+        <div class="list-headers">
+
+
+            <div class="list-header-content-container">
+                EMAIL
+            </div>
+            <div class="list-header-content-container">
+                DATE
+            </div>
+
+
+        </div>
+
+        <div class="list-tile" *ngFor="let member of pendingMembersList">
+
+            <div class="content">
+                {{member.invitee}}
+            </div>
+
+            <div class="content">
+                {{member.invitedOn}}
+            </div>
+            <div class="content">
+                <div class="revoke-btn" (click)="onRemoveInvite(member.invitee)">
+                    Revoke Invite
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="show-dialog-container" [ngClass]="{ active: isShowInviteDialog }">
+    <div class="content-container">
+        <div class="top-container">
+            <div class="delete-container">
+
+
+            </div>
+            <div class="cancel-container" (click)="hideInviteDialog()">X</div>
+        </div>
+        <div class="Delete-Workspace">
+            Invite User
+        </div>
+        <div class="Lorem-ipsum-dolor-si">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eros nibh, tincidunt ac nibh a, condimentum.
+        </div>
+
+        <div class="input-container">
+            <input type="text" class="input-text" placeholder="Email" [(ngModel)]="email" />
+        </div>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Role</mat-label>
+            <mat-select disableRipple (selectionChange)="selectedValue($event)">
+                <mat-option [value]="role.kuid" *ngFor="let role of workspaceRole">{{role.Role}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+        <div class="bottom-container">
+            <div></div>
+            <div class="delete-btn" (click)="onSendInvite()">Add</div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div *ngIf="commonService.isLoading" class="spinner-div">
+    <div class="loading-spinner-ripple">
+        <div class="spinner">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>

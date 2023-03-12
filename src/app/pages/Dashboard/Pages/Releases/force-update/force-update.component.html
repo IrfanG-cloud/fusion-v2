@@ -1,0 +1,159 @@
+<div class="container">
+    <div class="top-container">
+        <div class="icon-title">
+            Force Update
+        </div>
+
+        <div class="setup" (click)="openSetup()">
+            <img src="../../../../../../assets/icons/icons-s-idebar-add-active-plus.svg">
+            <div class="setupOption">Setup</div>
+        </div>
+    </div>
+    <div class="filters-bar-container">
+
+        <div class="search-bar">
+            <input type="text" name="search" placeholder="Search Version" class="search-input" />
+        </div>
+
+
+    </div>
+
+    <!--  list Container ----------------------------------------- -->
+
+    <div class="list-container">
+        <div class="list-headers">
+
+            <div class="header-content">
+                VERSION
+            </div>
+            <div class="header-content">
+                MODIFIED ON
+            </div>
+            <div class="header-content">
+                MESSAGE
+            </div>
+            <div class="header-content">
+                UPDATE TYPE
+            </div>
+            
+
+        </div>
+
+        <div class="list-tile" *ngFor="let release of releaseList">
+            <div class="tile-content-container-version">
+                {{release.version}}
+            </div>
+            <div class="tile-content-container">
+                {{release.modified_on}}
+            </div>
+            <div class="tile-content-container">
+                {{release.message}}
+            </div>
+
+            <div class="type-optional" *ngIf="'optional'==release.update_type"><img src="../../../../../../assets/icons/eos-icons-abstract-instance-blue.svg">
+                {{release.update_type}}</div>
+            <div class="type-mandatry" *ngIf="'mandatory'==release.update_type"><img src="../../../../../../assets/icons/bi-shield-fill-exclamation-orange.svg">
+                {{release.update_type}}</div>
+
+            <!-- <div class="tile-content-container">
+                <label class="switch">
+                    <input type="checkbox" [checked]="release.force_update">
+                    <span class="slider round"></span>
+                </label>
+            </div> -->
+            <div class="right-icon-container" [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
+                <div class="list-tile-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="M0 0h16v16H0z" />
+                            <path
+                                d="M4 9.333c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 2.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.941.391c.262.261.392.575.392.942s-.13.68-.392.941c-.26.262-.574.392-.941.392zm4 0c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 6.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941A1.284 1.284 0 0 1 8 9.333zm4 0c-.367 0-.68-.13-.942-.392A1.283 1.283 0 0 1 10.667 8c0-.367.13-.68.391-.942.261-.26.575-.391.942-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941a1.284 1.284 0 0 1-.942.392z"
+                                fill="#000" fill-rule="nonzero" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <mat-menu #menu="matMenu">
+                <div class="title" mat-menu-item >
+                    <img src="../../../../../../../assets/icons/icon-s-idebar-home-active-black.svg">
+                    <div class="menu-title">Deactivate</div>
+                </div>
+            </mat-menu>
+
+
+        </div>
+    </div>
+    <!-- ---------------------------------------------------------- -->
+</div>
+<div class="show-dialog-container" [ngClass]="{ active: showDialog }">
+    <div class="content-container">
+
+        <div class="top-container">
+
+            <div class="left-side">
+                <div class="header">Force Update</div>
+                <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eros nibh, tincidunt ac nibh a, condimentum.</div>
+                <div class="Update-Type">Update Type</div>
+
+
+                <div class="flex-row">
+                    <div class="type-optional" (click)="onSelectType('Optional')" [ngClass]="{active:'Optional'==type}">
+                        <img *ngIf="'Optional'!=type" src="../../../../../../assets/icons/eos-icons-abstract-instance-blue.svg" class="icon">
+                        <img *ngIf="'Optional'==type" src="../../../../../../assets/icons/eos-icons-abstract-instance-light.svg">
+                        Optional
+                    </div>
+                    <div class="type-mandatry" (click)="onSelectType('Mondatory')" [ngClass]="{active:'Mondatory'==type}">
+                        <img *ngIf="'Mondatory'!=type" src="../../../../../../assets/icons/bi-shield-fill-exclamation-orange.svg">
+                        <img *ngIf="'Mondatory'==type" src="../../../../../../assets/icons/bi-shield-fill-exclamation-light.svg">
+                        Mondatory
+                    </div>
+                </div>
+
+                <div class="Project-Name">
+                    <div class="title">
+                        Update Title
+                    </div>
+
+                    <div class="Rectangle-input1">
+                        <input class="project-name-input" type="text" placeholder="Enter Title Here">
+                    </div>
+                </div>
+
+                <div class="Add-message">
+                    Message
+                </div>
+                <div class="message">
+                    <textarea class="message-area" placeholder="Enter Message here"></textarea>
+                </div>
+
+                <div class="flex-row1">
+                    <div class="Project-Name">
+                        <div class="title">
+                            Positive CTA
+                        </div>
+                        <div class="Rectangle-input">
+                            <input class="project-name-input" type="text" placeholder="Enter Text Here">
+                        </div>
+                    </div>
+
+                    <div class="Project-Name">
+                        <div class="title">
+                            Negative CTA
+                        </div>
+                        <div class="Rectangle-input">
+                            <input class="project-name-input" type="text" placeholder="Enter Text Here">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="right-side">
+                <img class="screen" src="../../../../../../assets/icons/screen.png">
+
+            </div>
+        </div>
+        <div class="btn-secandry">Save</div>
+
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="content-container">
+        <div class="sidebar-container">
+            <div class="Project-Settings-Heading">
+                Project Settings
+            </div>
+
+            <div class="sub-heading">
+                You can find all settings here
+            </div>
+
+
+            <div class="row-container" [ngClass]="{active:item.id==tab}" *ngFor="let item of sidebarLiElements">
+                <img src={{item.icon}} *ngIf="tab!=item.id" class="icon" />
+                <img src={{item.active_icon}} *ngIf="tab==item.id" class="icon" />
+                <div class="label-text" [ngClass]="{active:item.id==tab}" (click)="selectTab(item.id)">
+                    {{item.title}}
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="page-wrapper-container">
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+</div>

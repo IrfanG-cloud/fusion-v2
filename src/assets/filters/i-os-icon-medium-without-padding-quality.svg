@@ -1,0 +1,28 @@
+<svg width="124" height="124" viewBox="0 0 124 124" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <filter x="-3.6%" y="-3.6%" width="107.3%" height="107.3%" filterUnits="objectBoundingBox" id="4cmakc7wub">
+            <feGaussianBlur stdDeviation="4" in="SourceAlpha" result="shadowBlurInner1"/>
+            <feOffset dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/>
+            <feColorMatrix values="0 0 0 0 0.297119141 0 0 0 0 0 0 0 0 0 1 0 0 0 0.5 0" in="shadowInnerInner1" result="shadowMatrixInner1"/>
+            <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner2"/>
+            <feOffset dy="3" in="shadowBlurInner2" result="shadowOffsetInner2"/>
+            <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"/>
+            <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" in="shadowInnerInner2" result="shadowMatrixInner2"/>
+            <feGaussianBlur stdDeviation="2" in="SourceAlpha" result="shadowBlurInner3"/>
+            <feOffset dy="1" in="shadowBlurInner3" result="shadowOffsetInner3"/>
+            <feComposite in="shadowOffsetInner3" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner3"/>
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" in="shadowInnerInner3" result="shadowMatrixInner3"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixInner1"/>
+                <feMergeNode in="shadowMatrixInner2"/>
+                <feMergeNode in="shadowMatrixInner3"/>
+            </feMerge>
+        </filter>
+        <path d="M116.491 7.95a10.725 10.725 0 0 1 7.501 10.167v22.379c-.137 36.534-22.613 69.264-56.66 82.512-1.7.663-3.508 1-5.332.992a14.509 14.509 0 0 1-5.331-.992C22.62 109.76.145 77.03.008 40.496v-22.38A10.725 10.725 0 0 1 7.447 7.95a190.937 190.937 0 0 1 109.044 0zM12.406 19.419v21.077c.072 31.468 19.405 59.681 48.726 71.105a2.79 2.79 0 0 0 1.523.06l.213-.06c29.32-11.424 48.654-39.637 48.726-71.105V19.419a178.662 178.662 0 0 0-99.188 0zm67.262 16.826a6.2 6.2 0 0 1 4.401 1.833 6.2 6.2 0 0 1 0 8.741l-23.06 23a6.2 6.2 0 0 1-4.053 1.848l-.287.011a6.2 6.2 0 0 1-4.402-1.86L40.861 58.226a6.2 6.2 0 1 1 8.74-8.617l7.068 7.067 18.597-18.598a6.2 6.2 0 0 1 4.402-1.833z" id="ht77dgs01a"/>
+    </defs>
+    <g fill-rule="nonzero" fill="none">
+        <use fill-opacity=".9" fill="#4684F8" xlink:href="#ht77dgs01a"/>
+        <use fill="#000" filter="url(#4cmakc7wub)" xlink:href="#ht77dgs01a"/>
+    </g>
+</svg>

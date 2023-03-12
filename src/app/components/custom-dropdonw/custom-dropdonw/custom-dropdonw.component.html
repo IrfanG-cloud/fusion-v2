@@ -1,0 +1,10 @@
+<div class="dropdown-collection">
+    <button class="dropdown-button" (click)="toggleDropdown()" (clickOutside)="dropdownOpen = false">
+        <div class="dropdown-value">{{title}}</div>
+        <img src="../../../../assets/icons/chevron-down-icon.svg">
+
+    </button>
+    <ul class="dropdown-list" role="listbox" aria-expanded="false" [ngClass]="{'dropdown-open' : dropdownOpen}">
+        <li *ngFor="let o of options" [ngClass]="{'selected' : currentValue === o}" tabindex="0" (click)="select(o)" role="option" [innerHTML]="o.Role"></li>
+    </ul>
+</div>

@@ -1,0 +1,267 @@
+@import "./widgets/ui_elements";
+
+.content-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+
+    .signIn {
+        font-family: "HelveticaNeue";
+        font-size: 24px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #111;
+    }
+
+    .signIndescription {
+        margin: 12px 0px 36px 0px;
+        font-family: "HelveticaNeue";
+        font-size: 12px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #475467;
+    }
+}
+
+.logo-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+
+    .logo-image-container {
+        // display: flex;
+        // align-items: center;
+
+        .logo-image {
+            width: 149px;
+            height: 41px;
+            object-fit: contain;
+
+        }
+
+    }
+
+    .logo-title {
+        // width: 102px;
+        // height: 38px;
+        // margin: 8px 0 10px 16px;
+        font-family: 'HelveticaNeue';
+        font-size: 32px;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #ffffff;
+    }
+}
+
+.social-logins-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.4rem;
+    gap: 12px;
+
+    .social-logins-button {
+        // margin: 1rem;
+        width: 4rem;
+        height: 4rem;
+        object-fit: cover;
+
+        cursor: pointer;
+    }
+}
+
+.signup-text-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.2rem;
+
+    .discription-text {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: $grey-text;
+    }
+
+    .action-text {
+        font-size: $font-size-16;
+        font-weight: 700;
+        color: $primary-color;
+        cursor: pointer;
+        margin-left: 0.5rem;
+    }
+}
+
+.forgot-password-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3.2rem;
+
+    .discription-text {
+        font-size: $font-size-16;
+        color: $grey-text;
+    }
+
+    .action-text {
+        font-size: $font-size-16;
+        font-weight: 700;
+        color: $primary-color;
+        cursor: pointer;
+        margin-left: 0.5rem;
+    }
+}
+
+.server-error-meesage {
+    width: 400px;
+    height: 80px;
+    margin: 10px 0 16px;
+    padding: 28px 64px 30px 17px;
+    border-radius: 12px;
+    border: solid 1px #ff5e5e;
+    background-color: #ffe5e5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .icon {
+        margin: 0px 16px 2px 0;
+        object-fit: contain;
+    }
+
+    .text {
+        font-family: 'HelveticaNeue-Bold';
+        font-size: 18px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #ff5e5e;
+    }
+}
+
+.input-feild {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.input-feild-isRequired {
+    width: 100%;
+    margin-top: 3vh;
+    border: 1px solid red;
+    border-radius: 12px;
+}
+
+.label {
+    font-size: $font-size-16;
+    font-weight: 500;
+    color: $grey-text;
+}
+
+.text-input-feild {
+    font-size: $font-size-16;
+    margin-top: 0.5rem;
+    font-family: 'HelveticaNeue-Medium';
+}
+
+.full-width {
+    width: 100%;
+    // margin: 3rem;
+    margin-bottom: 1.8rem;
+}
+
+::ng-deep .mat-form-field-underline {
+    display: none;
+}
+
+::ng-deep .mat-form-field-appearance-fill {
+    .mat-form-field-flex {
+        background-color: #f5f5f5 !important;
+        padding: 1.4rem 2.4rem !important;
+    }
+}
+
+::ng-deep .mat-form-field-infix {
+    padding: 0rem !important;
+}
+
+::ng-deep .ng-invalid {
+    .email-validate {
+        border: 1px solid #fa0404 !important;
+        border-radius: $radius-12;
+    }
+}
+
+::ng-deep .mat-form-field-appearance-fill {
+    .mat-form-field-label {
+        color: #000000;
+    }
+}
+
+::ng-deep .mat-form-field-label {
+    .forget-password {
+        background-color: #000;
+    }
+}
+
+::ng-deep .mat-input-element {
+    color: #000 !important;
+}
+
+::ng-deep .mat-form-field {
+    .mat-form-field-wrapper {
+        padding-bottom: 0rem !important;
+    }
+}
+
+::ng-deep .mat-form-field-flex {
+    border-radius: $radius-12 !important;
+}
+
+::ng-deep .mat-form-field.mat-focused {
+    color: #000000 !important;
+    border: 1px solid $primary-color;
+    border-radius: $radius-12;
+    background-color: #f5f5f5;
+}
+
+::ng-deep .mat-pseudo-checkbox-checked,
+.mat-pseudo-checkbox-indeterminate,
+.mat-accent .mat-pseudo-checkbox-checked,
+.mat-accent .mat-pseudo-checkbox-indeterminate {
+    background-color: $primary-color !important;
+}
+
+::ng-deep .mat-form-field-autocomplete {
+    background-color: transparent !important;
+}
+
+
+
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #f5f5f5 inset !important;
+}

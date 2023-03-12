@@ -1,0 +1,329 @@
+@import "../../../../../../assets/styling/principles/variables";
+
+.divider {
+    width: 1px;
+    height: 53px;
+    margin: 0 12px 0 0;
+    background-color: #d8d8d8;
+}
+
+.screen-container {
+    padding: 1rem 2rem 0 1.4rem;
+    background-color: #f9f9f9;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 3rem;
+
+
+    .top-container {
+        height: 2vh;
+        font-size: 2rem;
+        font-weight: 700;
+        align-items: center;
+        flex-direction: row;
+        display: flex;
+
+        .icon {
+            margin-right: 1rem;
+        }
+    }
+
+    .bugs-containers {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-top: 4rem;
+        width: 100%;
+        gap: 10px;
+
+    }
+
+    .dashboard {
+
+        font-family: "HelveticaNeue-Medium";
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $black;
+    }
+
+    .card {
+        height: 130px;
+        // margin: 0 16px 0 0;
+        // padding: 20px;
+        border-radius: 20px;
+        border: solid 1px $grey-020;
+        background-color: $white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 2.8rem;
+    }
+
+    .Oval {
+        width: 7rem;
+        height: 7rem;
+        margin: 0 16px 0 0;
+        border-radius: 35px;
+        background-color: $blue-020;
+        display: grid;
+        place-items: center;
+    }
+
+    .title-card {
+        height: 18px;
+        // margin: 0 60px 4px 0;
+        font-family: "HelveticaNeue";
+        font-size: 1.6rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #8a8a8a;
+        white-space: nowrap;
+    }
+
+    .innercard {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .number {
+        // width: 98px;
+        height: 38px;
+        margin: 4px 0 0;
+        font-family: "HelveticaNeue-Medium";
+        font-size: 3rem;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $black;
+    }
+
+    .graph-container {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 16px;
+
+
+        .graph {
+            width: 63%;
+            height: 306px;
+            padding: 20px 14px 25px 20px;
+            border-radius: 20px;
+            background-color: $white;
+        }
+
+        .audience {
+            width: 35%;
+            height: 306px;
+            padding: 20px 4px 32px 20px;
+            border-radius: 20px;
+            background-color: $white;
+
+        }
+
+
+        .userFeedback {
+            width: 63%;
+            height: 444px;
+            border-radius: 20px;
+            background-color: $white;
+            margin-bottom: 24px;
+            overflow-y: scroll;
+
+            .top {
+                padding: 20px 14px 0px 20px;
+            }
+
+            .list-container {
+                width: 100%;
+                margin-top: 20px;
+
+                .list-header {
+                    display: grid;
+                    grid-template-columns: 5fr 3fr 1fr;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 0px 14px 0px 20px;
+
+                    .header {
+                        font-family: 'HelveticaNeue';
+                        font-size: 13px;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: normal;
+                        letter-spacing: normal;
+                        color: $grey-100;
+                    }
+                }
+
+                .list-tile {
+                    height: 6rem;
+                    display: grid;
+                    grid-template-columns: 5fr 3fr 1fr;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 0px 14px 0px 20px;
+
+                    .tile {
+                        font-family: 'HelveticaNeue';
+                        font-size: 13px;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: normal;
+                        letter-spacing: normal;
+                        color: $grey-100;
+                    }
+
+                    .rating-stars {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 3px;
+                    }
+
+                    .star-icon {
+                        width: 20px;
+                        height: 20px;
+                        object-fit: contain;
+
+                    }
+                }
+
+                .list-tile:nth-child(odd) {
+                    background-color: $grey-010;
+                    border-radius: 12px;
+                }
+
+            }
+
+        }
+
+        .userFeedback::-webkit-scrollbar,
+        .member::-webkit-scrollbar {
+            width: 6px;
+            background-color: #f9f9f9;
+
+        }
+
+        .userFeedback::-webkit-scrollbar-thumb,
+        .member::-webkit-scrollbar-thumb {
+            background-color: $grey-050;
+            border-radius: 10px;
+        }
+
+        .userFeedback::-webkit-scrollbar-thumb:hover,
+        .member::-webkit-scrollbar-thumb:hover {
+            background-color: #3b3b3b;
+        }
+
+        .member {
+            width: 35%;
+            height: 444px;
+            padding: 20px 6px 18px 20px;
+            border-radius: 20px;
+            background-color: $white;
+            overflow-y: scroll;
+
+        }
+    }
+}
+
+
+.title {
+    width: 136px;
+    height: 22px;
+    // margin: 0 0 4px 20px;
+    font-family: "HelveticaNeue-Medium";
+    font-size: 18px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $black;
+}
+
+.subheading {
+    width: 91px;
+    height: 12px;
+    margin: 4px 0px 0 0px;
+    font-family: "HelveticaNeue";
+    font-size: 11px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $grey-080;
+    white-space: nowrap;
+
+}
+
+.rectangle {
+    width: 100%;
+    height: 64px;
+    margin: 10px 0px 0px;
+    padding: 12px 137px 12px 12px;
+    border-radius: 8px;
+    background-color: $grey-010;
+
+    .rectangle-container {
+        display: flex;
+        flex-direction: row;
+
+        .mask {
+            width: 40px;
+            height: 40px;
+            margin: 0 11px 0 0;
+            border-radius: 20px;
+        }
+
+        .rectangle-container1 {
+            display: flex;
+            flex-direction: column;
+
+            .member-name {
+                width: 86px;
+                height: 18px;
+                margin: 3px 78px 2px 11px;
+                font-family: "HelveticaNeue-Medium";
+                font-size: 16px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: $black;
+                white-space: nowrap;
+
+            }
+
+            .member-description {
+                width: 164px;
+                height: 15px;
+                margin: 2px 0 2px 11px;
+                font-family: "HelveticaNeue";
+                font-size: 13px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: $grey-080;
+            }
+        }
+    }
+}

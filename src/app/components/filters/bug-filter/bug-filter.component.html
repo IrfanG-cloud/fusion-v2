@@ -1,0 +1,43 @@
+<div class="filter-container">
+    <div class="filters-header">
+        <div class="filters">Filters</div>
+        <div class=" display-left" (click)="onApply()">
+            Apply
+        </div>
+    </div>
+
+    <div class="dropdown" *ngFor="let in of counter(inputCount); let ind = index">
+        <mat-select placeholder="Select" (selectionChange)="filterValue($event)" let i="index">
+            <mat-option *ngFor="let filter of filters ; let indexOfElement= index" [value]="filter"><img class="icon1" [src]="filter?.icon" alt="icon">{{filter?.name}}</mat-option>
+        </mat-select>
+
+        <mat-select placeholder="Select" (selectionChange)="filteredChangess($event,ind)" let j="index">
+            <!-- <option *ngFor="let fiter of filters">{{fiter.values}}</option> -->
+            <mat-option *ngFor="let filtered of selected[ind]?.values;  let indexOfElement= index" [value]="filtered">
+                <div class="name-icon">
+                    <img class="avatar-icon" src="{{filtered?.dot || filtered?.icon || filtered?.avatar}}" *ngIf="filtered.isIcon">
+                    <div class="innerSide">
+                        <span class="name">{{filtered?.status || filtered?.tag_name || filtered?.assignee_name || filtered?.bugTitle || filtered.label }}</span>
+                        <!-- <span class="description">{{filtered?.assignee_description}}</span> -->
+                    </div>
+                </div>
+                <!-- {{filtered?.status_label || filtered?.tag_name ||
+                filtered?.assignee_name || filtered?.assignee_description || filtered}} -->
+            </mat-option>
+        </mat-select>
+
+        <div class="removebtn" #inputcont (click)="removeInput(ind)" >
+            <img class="img" src="../../../../assets/images/filters/i-os-icon-medium-without-padding-add.svg">
+        </div>
+    </div>
+
+
+    <div class="btn-toggle" (click)='addInput()'>
+        <img #inputcont class="plusbtn" src="../../../../assets/images/filters/akar-icons-circle-plus-fill.svg" alt="">
+        <div class="Add-Condition">Add Condition</div>
+    </div>
+
+
+
+
+</div>

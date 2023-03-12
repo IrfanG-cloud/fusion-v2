@@ -1,0 +1,333 @@
+<div class="bug-detail-container">
+
+    <div class="top-container">
+        <div class="container-back-button">
+            <div class="back-button-container" (click)="goBack()">
+                <div class="Rectangle">
+                    <img src="../../../../../../../assets/icons/left-arrow.png" class="left-icon" />
+                </div>
+                <span class="Back-to-Issues">
+                    Back to Crashes
+                </span>
+            </div>
+
+            <div [matMenuTriggerFor]="menuOptions" aria-label="Example icon-button with a menu">
+                <div class="ViewBox">
+                    <div class="Oval"></div>
+                    <div class="Oval"></div>
+                    <div class="Oval"></div>
+                </div>
+
+            </div>
+            <mat-menu #menuOptions="matMenu" class="menu-container">
+                <div class="menu-item">
+                    <img src="../../../../../../../assets/icons/icon-s-idebar-home-active-black.svg">
+                    <div class="opt-text">Follow</div>
+                </div>
+                <div class="Divider"></div>
+                <div class="menu-item" (click)="deleteCrash()">
+                    <img src="../../../../../../../assets/icons/icon-s-idebar-home-active-black.svg">
+                    <div class="opt-text">Delete</div>
+                </div>
+
+            </mat-menu>
+        </div>
+
+        <div class="BugID">
+            01 Jan 2023
+        </div>
+        <div class="Lorem-ipsum-dolor-si">
+            {{crashDetails.crashTitle}}
+        </div>
+
+        <div class="detail-section">
+            <div class="assignee-container">
+
+
+            </div>
+
+            <div class="status-container">
+
+                <!-- ---------------------------------------------------------------- -->
+                <div [matMenuTriggerFor]="Status">
+                    <div class="Rectangle">
+
+                        <div class="items-left">
+                            <div class="oval" style="--color:#ff7465"></div>
+                            <div class="items">
+                                <span class="text-normal">Status</span>
+                                <span class="menu-item-content-text">To Do</span>
+                            </div>
+                        </div>
+                        <div class="items-right">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <g fill="none" fill-rule="evenodd">
+                                    <path d="M0 0h16v16H0z" />
+                                    <path stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2.667 6 8 11.333 13.333 6" />
+                                </g>
+                            </svg>
+
+
+                        </div>
+                    </div>
+                </div>
+                <mat-menu #Status="matMenu" class="menu-container">
+                    <div class="menu-item-to-update" (click)="updateStatus(statuses[0].kuid)">
+                        <div class="oval" style="--color:#4a80f8"></div>
+                        <span class="menu-item-text">{{statuses[0].name}}</span>
+                    </div>
+                    <div class="menu-item-to-update" (click)="updateStatus(statuses[1].kuid)">
+                        <div class="oval" style="--color:#feb86c"></div>
+                        <span class="menu-item-text">{{statuses[1].name}}</span>
+                    </div>
+                    <div class="menu-item-to-update" (click)="updateStatus(statuses[2].kuid)">
+                        <div class="oval" style="--color:#fa7a77"></div>
+                        <span class="menu-item-text">{{statuses[2].name}}</span>
+                    </div>
+                </mat-menu>
+
+                <!-- ------------------------------------------------------------------ -->
+                <div [matMenuTriggerFor]="Priority" aria-label="Example icon-button with a menu">
+                    <div class="Rectangle">
+
+                        <div class="items-left">
+                            <div class="oval" style="--color:#ff7465"></div>
+                            <div class="items">
+                                <span class="text-normal">Priority</span>
+                                <span class="menu-item-content-text">Heigh</span>
+                            </div>
+                        </div>
+                        <div class="items-right">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <g fill="none" fill-rule="evenodd">
+                                    <path d="M0 0h16v16H0z" />
+                                    <path stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2.667 6 8 11.333 13.333 6" />
+                                </g>
+                            </svg>
+
+
+                        </div>
+                    </div>
+                </div>
+                <mat-menu #Priority="matMenu" class="menu-container">
+                    <div class="menu-item-to-update">
+                        <div class="oval" style="--color:#4a80f8"></div>
+                        <span class="menu-item-text">Low</span>
+                    </div>
+                    <div class="menu-item-to-update">
+                        <div class="oval" style="--color:#feb86c"></div>
+                        <span class="menu-item-text">Normal</span>
+                    </div>
+                    <div class="menu-item-to-update">
+                        <div class="oval" style="--color:#fa7a77"></div>
+                        <span class="menu-item-text">High</span>
+                    </div>
+                </mat-menu>
+
+                <!-- --------------------------------------------------------------------- -->
+                <div [matMenuTriggerFor]="Assignee" class="drop-down-menu" aria-label="Example icon-button with a menu">
+                    <div class="Rectangle">
+
+                        <div class="items-left">
+                            <img src="../../../../../../../assets/images/avatar.png" class="Avatar" />
+                            <div class="items">
+                                <span class="text-normal">Assignee</span>
+                                <span class="menu-item-content-text">Assigne Name</span>
+                            </div>
+                        </div>
+                        <div class="items-right">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <g fill="none" fill-rule="evenodd">
+                                    <path d="M0 0h16v16H0z" />
+                                    <path stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2.667 6 8 11.333 13.333 6" />
+                                </g>
+                            </svg>
+
+
+                        </div>
+                    </div>
+                </div>
+                <mat-menu #Assignee="matMenu" class="menu-container">
+                    <div class="search-assignee-container">
+                        <input type="text" class="search" (click)="searchAssignee($event)" placeholder="Search Assignee" />
+                    </div>
+                    <div class="Divider"></div>
+                    <div *ngFor="let assignee of Assignees" (click)="updateAssignee(assignee.kuid)">
+                        <div class="menu-item-to-update">
+                            <img src="../../../../../../../assets/images/avatar.png" class="Avatar" />
+                            <div class="disp-col">
+                                <span class="assigne-name">{{assignee.name}}</span>
+                                <span class="assigne-job">{{assignee.groupName}}</span>
+                            </div>
+                        </div>
+                        <div class="Divider"></div>
+                    </div>
+                </mat-menu>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="tab-container">
+        <div class="tab" *ngFor="let tab of tabs" [ngClass]="{ active: tab.id==selectedTab}" (click)="selectTab(tab.id)">
+            <img src={{tab.icon}} *ngIf=" tab.id!=selectedTab" class="icon" />
+            <img src={{tab.activeicon}} *ngIf="tab.id==selectedTab" class="icon" />
+
+            <div class="text">
+                {{tab.name}}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content-container" *ngIf="selectedTab==1">
+
+        <div class="right-content-screen">
+            <div class="top-content-containers">
+                <div class="cont-block">
+                    <div class="vl">
+                        <div class="f-block">
+                            <div class="innerSide">
+                                <span class="number-img">
+                                    20,000
+                                </span>
+
+                                <span class="Occurances">
+                                    Occurances
+                                </span>
+                            </div>
+                            <div class="screen-logo">
+                                <img src="../../../../../../../assets/icons/i-os-icon-small-occurence-rotates.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont-block">
+                    <div class="vl">
+                        <div class="f-block">
+                            <div class="innerSide">
+                                <span class="number-img">
+                                    868
+                                </span>
+
+                                <span class="Occurances">
+                                    AffectedUser
+                                </span>
+                            </div>
+                            <div class="screen-logo">
+                                <img src="../../../../../../../assets/icons/i-os-icon-small-users-people.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="bg"></div>
+
+            <div class="bg"></div>
+
+
+        </div>
+
+        <div class="left-side-container">
+            <div class="Environment-Details">
+                Environment Details
+            </div>
+
+            <div class="detail-list" *ngFor="let list of detailList">
+                <div class="list-tag">
+                    {{list.tag}}
+                </div>
+                <div class="list-value">
+                    {{list.value}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="selectedTab==2">
+        <div class="detail">
+
+            <mat-button-toggle-group class="matButtonToggleGroup">
+                <mat-button-toggle class="default" value="Toggle Button 1">
+                    Default
+                </mat-button-toggle>
+                <mat-button-toggle class="raw" value="Toggle Button 2">
+                    Raw
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+
+            <div class="tog-btn">
+
+                <div class="upload">
+                    <img src="../../../../../../../assets/icons/material-symbols-upload.svg">
+                    <div class="btn-upload">Upload Maping File</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="Bugshow">
+            <div class="comaptestbugMa" *ngFor="let testBug of compagTestBug">
+                <div class="testBug">{{testBug.value}}</div>
+                <!-- <div class="divide"></div> -->
+                <div class="activity-data">{{testBug.id}}</div>
+            </div>
+
+        </div>
+    </div>
+    <div *ngIf="selectedTab==3">
+        <div class="phone">
+            <div class="phone1">
+                <img src="../../../../../../../assets/images/filters/screen.jpg">
+            </div>
+            <div class="phone1">
+                <img src="../../../../../../../assets/images/filters/screen.jpg">
+            </div>
+            <div class="phone1">
+                <img src="../../../../../../../assets/images/filters/screen.jpg">
+            </div>
+            <div class="phone1">
+                <img src="../../../../../../../assets/images/filters/screen.jpg">
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="selectedTab==4">
+
+        <div class="log-container">
+            <div class="content-filters-container">
+                <div class="Rectangle-Copy" (click)="onSelectTab(tab.id)" *ngFor="let tab of tabfilters" [ngClass]="{active: activeTabs==tab.id}">
+                    <span class="Actions-text">
+                        {{tab.label}}
+                    </span>
+                </div>
+            </div>
+
+            <div class="logs-content-container">
+                <div class="log-container" *ngFor="let log of activityLogs">
+                    <span class="date">{{log.timeStamp | date: 'yyyy-MM-dd'}}</span>
+                    <div class="Rectangle"></div>
+                    <span class="payload">{{log.payLoad | nl2br}}</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- loader -->
+    <div *ngIf="commonService.isLoading" class="spinner-div">
+        <div class="loading-spinner-ripple">
+            <div class="spinner">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="no-record-found" *ngIf="commonService.isObjectEmpty(crashDetails)">
+    <h2>No Data to Display</h2>
+</div>

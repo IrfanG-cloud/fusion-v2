@@ -1,0 +1,488 @@
+<div class="bug-detail-container">
+
+    <div class="top-container">
+        <div class="container-back-button">
+            <div class="back-button-container" (click)="goBack()">
+                <div class="Rectangle">
+                    <img src="../../../../../../../assets/icons/left-arrow.png" class="left-icon" />
+                </div>
+                <span class="Back-to-Issues">
+                    Back to Issues
+                </span>
+            </div>
+
+            <div [matMenuTriggerFor]="menuOptions" aria-label="Example icon-button with a menu">
+                <div class="ViewBox">
+                    <div class="Oval"></div>
+                    <div class="Oval"></div>
+                    <div class="Oval"></div>
+                </div>
+
+            </div>
+            <mat-menu #menuOptions="matMenu" class="menu-container">
+                <div class="menu-item">
+                    <img src="../../../../../../../assets/icons/icon-s-idebar-home-active-black.svg">
+                    <div class="opt-text">Follow</div>
+                </div>
+                <div class="Divider"></div>
+                <div class="menu-item" (click)="deleteBug()">
+                    <img src="../../../../../../../assets/icons/icon-s-idebar-home-active-black.svg">
+                    <div class="opt-text">Delete</div>
+                </div>
+
+            </mat-menu>
+        </div>
+
+        <div class="BugID">
+            01 Jan 2023
+        </div>
+        <div class="Lorem-ipsum-dolor-si">
+            {{bugDetails.bugTitle}}
+        </div>
+
+        <div class="detail-section">
+            <div class="assignee-container">
+                <div class="assignee">
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <g fill-rule="nonzero" fill="none">
+                            <circle fill="#E2EBFE" cx="8" cy="8" r="8" />
+                            <path
+                                d="M8 2c3.309 0 6 2.691 6 6a5.961 5.961 0 0 1-.94 3.212A7.582 7.582 0 0 0 8 9.273a7.582 7.582 0 0 0-5.06 1.939A5.961 5.961 0 0 1 2 8c0-3.309 2.691-6 6-6m0-2C3.589 0 0 3.589 0 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8m0 8a2.545 2.545 0 1 0 0-5.09A2.545 2.545 0 0 0 8 8"
+                                fill="#ABB1B7" />
+                        </g>
+                    </svg>
+                    <span class="name-text">
+                        {{bugDetails.reporteeName}}
+                    </span>
+                </div>
+                <div class="assignee">
+                    <svg width="17" height="16" viewBox="0 0 17 16" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="M.349 0h16v16h-16z" />
+                            <path
+                                d="M13.682 2.667H3.015c-.733 0-1.326.6-1.326 1.333l-.007 8c0 .733.6 1.333 1.333 1.333h10.667c.733 0 1.333-.6 1.333-1.333V4c0-.733-.6-1.333-1.333-1.333zm0 2.666L8.349 8.667 3.015 5.333V4L8.35 7.333 13.682 4v1.333z"
+                                fill="#ABB1B7" fill-rule="nonzero" />
+                        </g>
+                    </svg>
+
+                    <span class="name-text">
+                        {{bugDetails.reporteeEmail}}
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="status-container">
+
+                <!-- ---------------------------------------------------------------- -->
+                <div (click)="onShowStatusDropDown($event)">
+                    <div class="Rectangle">
+
+                        <div class="items-left">
+                            <img src="../../../../../../../assets/icons/i-os-icon-medium-without-padding-status-to-do-light.svg">
+                            <div class="items">
+                                <span class="text-normal">Status</span>
+                                <span class="menu-item-content-text" *ngIf="'xyz1'==bugDetails.resolutionStatusKuid
+">To Do</span>
+                                <span class="menu-item-content-text" *ngIf="'xyz2'==bugDetails.resolutionStatusKuid
+">In Progress</span>
+                                <span class="menu-item-content-text" *ngIf="'xyz3'==bugDetails.resolutionStatusKuid
+">Done</span>
+
+                            </div>
+                        </div>
+                        <div class="items-right">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <g fill="none" fill-rule="evenodd">
+                                    <path d="M0 0h16v16H0z" />
+                                    <path stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2.667 6 8 11.333 13.333 6" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div closeOnOutsideClick *ngIf="showStatusDropDown" class="status-menu-container">
+                    <div class="menu-item-to-update" (click)="updateBugStatus(statuses[0].kuid,statuses[0].name)">
+                        <img src="../../../../../../../assets/icons/i-os-icon-medium-without-padding-status-to-do-light.svg">
+                        <span class="menu-item-text">{{statuses[0].name}}</span>
+                    </div>
+                    <div class="menu-item-to-update" (click)="updateBugStatus(statuses[1].kuid,statuses[1].name)">
+                        <img src="../../../../../../../assets/icons/i-os-icon-medium-without-padding-status-in-progress-halflight.svg">
+
+                        <span class="menu-item-text">{{statuses[1].name}}</span>
+                    </div>
+                    <div class="menu-item-to-update" (click)="updateBugStatus(statuses[2].kuid,statuses[2].name)">
+                        <img src="../../../../../../../assets/icons/i-os-icon-medium-without-padding-status-done-light.svg">
+                        <span class="menu-item-text">{{statuses[2].name}}</span>
+                    </div>
+                </div>
+
+                <!-- ------------------------------------------------------------------ -->
+           
+                <!-- --------------------------------------------------------------------- -->
+                <div closeOnOutsideClick (click)="onShowAssigneDropDown($event)">
+                    <div class="Rectangle">
+
+                        <div class="items-left">
+                            <img src="../../../../../../../assets/images/avatar.png" class="Avatar" />
+                            <div class="items">
+                                <span class="text-normal">Assignee</span>
+                                <span class="menu-item-content-text">{{bugDetails.assignee}}</span>
+                            </div>
+                        </div>
+                        <div class="items-right">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <g fill="none" fill-rule="evenodd">
+                                    <path d="M0 0h16v16H0z" />
+                                    <path stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2.667 6 8 11.333 13.333 6" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="showAssigneDropDown" class="assigne-menu-container">
+                    <div class="search-assignee-container">
+                        <input type="text" class="search" (click)="searchAssignee($event)" placeholder="Search Assignee" />
+                    </div>
+                    <div class="Divider"></div>
+                    <div *ngFor="let assignee of Assignees" (click)="updateBugAssignee(assignee.kuid)">
+                        <div class="menu-item-to-update">
+                            <img src="../../../../../../../assets/images/avatar.png" class="Avatar" />
+                            <div class="disp-col">
+                                <span class="assigne-name">{{assignee.name}}</span>
+                                <span class="assigne-job">{{assignee.groupName}}</span>
+                            </div>
+                        </div>
+                        <div class="Divider"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tab-container">
+        <div class="tab" *ngFor="let tab of tabs" [ngClass]="{ active: tab.id==selectedTab}" (click)="selectTab(tab.id)">
+            <img src={{tab.icon}} *ngIf=" tab.id!=selectedTab" class="icon" />
+            <img src={{tab.activeicon}} *ngIf="tab.id==selectedTab" class="icon" />
+            <div class="text">
+                {{tab.name}}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content-container" *ngIf="selectedTab==1">
+
+        <div class="right-content-screen">
+            <div class="right-side-container">
+
+                <div class="device-priveiw-container">
+
+                    <!-- Device preview container add images to phone device -->
+
+                    <!-- Device preview for Iphone 14 devices frame -->
+                    <div class="snapshot"
+                        style="--image:'url(https://img.gadgethacks.com/img/79/59/63774746082806/0/always-use-dark-mode-light-mode-for-any-app-your-iphone.w1456.jpg)'">
+                        <div class="dframe"></div>
+                    </div>
+                </div>
+
+                <div class="content-container">
+                    <div class="Lorem-ipsum-dolor-si">
+                        {{bugDetails.Description}}
+                    </div>
+                    <div class="tag-row">
+                        <div class="tag-container">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10.44 5.56a1.973 1.973 0 1 1 2.79-2.79 1.973 1.973 0 0 1-2.79 2.79m5.551.128L16 1.785A1.78 1.78 0 0 0 14.215 0l-3.903.009A1.783 1.783 0 0 0 9.057.53L.522 9.066a1.78 1.78 0 0 0 0 2.518l3.894 3.894a1.78 1.78 0 0 0 2.518 0l8.536-8.535c.332-.332.52-.784.521-1.255"
+                                    fill="#4684F8" fill-rule="nonzero" />
+                            </svg>
+
+                            <div class="Tags">
+                                Tags
+                            </div>
+                        </div>
+
+                        <div class="tag-detail-container">
+                            <div class="tag-widget">
+                                Web
+                            </div>
+                            <div class="tag-widget">
+                                UX Design
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tag-row">
+                        <div class="tag-container">
+                            <img src="../../../../../../../assets/icons/test-cases-issues.svg">
+
+                            <div class="Tags">
+                                Test Cases
+                            </div>
+                        </div>
+
+                        <div class="tag-detail-container">
+                            <div class="tag-widget gry">
+                                QA - 345
+                            </div>
+                            <div class="tag-widget gry">
+                                QA - 346
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="tag-row">
+                        <div class="tag-container">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15.2 7.413c.442 0 .8.348.8.779C16 12.498 12.411 16 8 16s-8-3.502-8-7.808c0-.43.358-.779.8-.779.442 0 .8.348.8.779 0 3.447 2.871 6.25 6.4 6.25 3.529 0 6.4-2.803 6.4-6.25 0-.43.358-.779.8-.779zM8 0c2.651 0 4.8 2.15 4.8 4.8v2.82a4.801 4.801 0 0 1-4.586 4.796L8 12.42c-2.651 0-4.8-2.15-4.8-4.8V4.8A4.801 4.801 0 0 1 7.785.006L8 0z"
+                                    fill="#4684F8" fill-rule="nonzero" />
+                            </svg>
+
+
+                            <div class="Tags">
+                                Audio
+                            </div>
+                        </div>
+
+                        <div class="tag-detail-container">
+                            <div class="audio-play-container">
+                                <!-- <div *ngIf="wave" class="controls">
+                                    <button (click)="onStopPressed()">Stop</button>
+                                </div> -->
+
+                                <div (click)="onStopPressed()" *ngIf="showPause" class="controls" class="play-btn">
+                                    <img src="../../../../../../../assets/icons/pause.png" class="pause-icon" />
+                                </div>
+                                <div (click)="onPreviewPressed()" *ngIf=" !showPause" class="play-btn">
+                                    <svg width="15" height="17" viewBox="0 0 15 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <defs>
+                                            <path id="4zvf1nf3ea" d="M0 0h14.409v16.007H0z" />
+                                        </defs>
+                                        <g fill="none" fill-rule="evenodd">
+                                            <mask id="4xh4ghi1ab" fill="#fff">
+                                                <use xlink:href="#4zvf1nf3ea" />
+                                            </mask>
+                                            <path
+                                                d="M13.38 6.221 3.087.278C1.715-.514 0 .476 0 2.061v11.885c0 1.584 1.715 2.574 3.087 1.782L13.38 9.786c1.372-.793 1.372-2.773 0-3.565"
+                                                fill="#4684F8" mask="url(#4xh4ghi1ab)" />
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div id="waveform" class="wave-container"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tag-row-start">
+                        <div class="tag-container">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <g fill-rule="nonzero" fill="none">
+                                    <rect fill="#E2EBFE" width="16" height="16" rx="4" />
+                                    <path
+                                        d="M12 0a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h8zm0 2H4a2 2 0 0 0-2 2v6.221h2.51l3.53-3.304a.616.616 0 0 1 .788 0l4.612 3.305.56-.001V4a2 2 0 0 0-2-2zM4.923 3.077a1.846 1.846 0 1 1 0 3.692 1.846 1.846 0 0 1 0-3.692z"
+                                        fill="#4684F8" />
+                                </g>
+                            </svg>
+
+
+                            <div class="Tags">
+                                Images
+                            </div>
+                        </div>
+
+                        <div class="tag-detail-container-images">
+                            <!-- todo for images when user tap image its shows on devices preview -->
+                            <div class="snapshot-small"
+                                style="--image:'url(https://img.gadgethacks.com/img/79/59/63774746082806/0/always-use-dark-mode-light-mode-for-any-app-your-iphone.w1456.jpg)'">
+                                <div class="dframe-small"></div>
+                            </div>
+
+                            <div class="snapshot-small"
+                                style="--image:'url(https://firebasestorage.googleapis.com/v0/b/i-usmansultan.appspot.com/o/grubr-uk%2Ftermcondition.png?alt=media&token=61768dcf-d849-45e9-b83e-daa7eb401ce7)'">
+                                <div class="dframe-small"></div>
+                            </div>
+                            <div class="snapshot-small"
+                                style="--image:'url(https://firebasestorage.googleapis.com/v0/b/i-usmansultan.appspot.com/o/Driverly-App%2F28Payment%20Option.png?alt=media&token=b1dedce7-47c5-4ab7-bb6e-50e21721d568)'">
+                                <div class="dframe-small"></div>
+                            </div>
+                            <!-- ---------------------------------------------------------------- -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="Line-2"></div> -->
+
+            <div class="Rectangle">
+
+                <div class="Add-a-Comment">
+                    <!-- <input type="text" class="input" (keyup)="detectMention()" [(ngModel)]="comment"> -->
+                    <textarea [(ngModel)]="comment" class="input" placeholder="Add a comment" (keyup)="detectMention()"></textarea>
+
+                </div>
+                <div class="Shape" [ngClass]="{active: comment.length>0}" (click)="onPostComment()">
+                    <img src="../../../../../../../assets/icons/material-symbols-arrow-circle-up-rounded-gray.svg" [ngClass]="{active: comment.length>0}" class="upword-icon"
+                        alt="icon" />
+                </div>
+            </div>
+
+            <div class="comment-container" *ngFor="let comment of allComments">
+
+                <div class="image-container">
+
+                </div>
+                <div class="comment-seaction">
+                    <div class="comment-name">{{comment.userName}}</div>
+                    <div class="comment-date">{{comment.postedOn}}</div>
+
+                    <div class="comment-seaction">
+                        {{comment.comment}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- right side of the screen for enviroment variables -->
+        <div class="left-side-container">
+            <div class="Environment-Details">
+                Environment Details
+            </div>
+
+
+            <div class="detail-list" *ngFor="let list of detailList">
+                <div class="list-tag">
+                    {{list.tag}}
+                </div>
+                <div class="list-value">
+                    {{list.value}}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div *ngIf="selectedTab==2" class="repo-steps">
+
+        <div class="snapshot" style="--image:'url(https://img.gadgethacks.com/img/79/59/63774746082806/0/always-use-dark-mode-light-mode-for-any-app-your-iphone.w1456.jpg)'">
+            <div class="dframe"></div>
+        </div>
+        <div class="snapshot"
+            style="--image:'url(https://firebasestorage.googleapis.com/v0/b/i-usmansultan.appspot.com/o/grubr-uk%2Ftermcondition.png?alt=media&token=61768dcf-d849-45e9-b83e-daa7eb401ce7)'">
+            <div class="dframe"></div>
+        </div>
+        <div class="snapshot"
+            style="--image:'url(https://firebasestorage.googleapis.com/v0/b/i-usmansultan.appspot.com/o/Driverly-App%2F28Payment%20Option.png?alt=media&token=b1dedce7-47c5-4ab7-bb6e-50e21721d568)'">
+            <div class="dframe"></div>
+        </div>
+    </div>
+
+    <div class="log" *ngIf="selectedTab==3">
+
+        <div class="log-container">
+            <div class="content-filters-container">
+                <div class="Rectangle-Copy" (click)="onSelectTab(tab.id)" *ngFor="let tab of tabfilters" [ngClass]="{active: tab.isActive}">
+                    <span class="Actions-text">
+                        {{tab.label}}
+                    </span>
+                </div>
+            </div>
+
+            <div class="logs-content-container">
+                <div class="logs-container-header">
+                    <div class="header">
+                        TIME
+                    </div>
+                    <div class="header">
+                        EVENT
+                    </div>
+                    <div class="header">
+                        DETAILS
+                    </div>
+                </div>
+                <div class="logs-container-content" *ngFor="let log of activityLogs; let i=index">
+                    <div class="content-seact">
+                        {{log.timeStamp | date: 'yyyy-MM-dd'}}
+                    </div>
+                    <div class="content-seact">Lorem Ipsum Dolor SIte Amet
+                        <div class="cont " *ngIf="log.eventType=='SYSTEM'">{{log.payLoad.network_change || log.payLoad.app_state}}</div>
+                        <div class="cont" *ngIf="log.eventType=='APP_JOURNEY'">{{log.payLoad.controllerName}}</div>
+                        <div class="cont" *ngIf="log.eventType=='APP_CLICK'">{{log.payLoad.controllerName}}</div>
+                    </div>
+                    <div class="content-button" (click)="openNav(i)">
+                        View Details
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div *ngIf="selectedTab==4">
+        Console log
+    </div>
+
+
+    <!-- loader -->
+    <div *ngIf="commonService.isLoading" class="spinner-div">
+        <div class="loading-spinner-ripple">
+            <div class="spinner">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sidepanel" *ngIf="showSidePanel" [ngClass]="{active: showSidePanel}">
+    <div class="content-panel">
+        <div class="closebtn" (click)="closeNav()">&times;</div>
+        <div class="top-container">
+            <div class="Activity-History">
+                Activity History
+            </div>
+
+            <div class="row-container">
+                <div class="left">
+                    Time
+                </div>
+                <div class="right">
+                    {{activityLogs[index].timeStamp | date: 'yyyy-MM-dd'}}
+                </div>
+            </div>
+            <div class="row-container">
+                <div class="left">
+                    Event Type
+                </div>
+                <div class="right">
+                    <div class="event-tag">
+                        {{activityLogs[index].eventType}}
+                    </div>
+                </div>
+            </div>
+            <div class="row-container">
+                <div class="left">
+                    Interaction
+                </div>
+                <div class="right">
+                    Lorem Ipsum Dolor SIte Amet
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+        </div>
+
+
+        <div class="jons-data">
+            <pre>{{ myJson }}</pre>
+        </div>
+    </div>
+</div>

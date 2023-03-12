@@ -1,0 +1,87 @@
+<!-- Centered layout as in v2 designs -->
+
+<div class="layout-centered">
+
+    <div>
+        <div class="logo-container">
+            <div class="logo-image-container">
+                <img src="../../../../assets/icons/logo-fusion.svg" alt="logo" class="logo-image" />
+            </div>
+        </div>
+        <div class="container">
+            <div class="content-container">
+                <div class="signIn">
+                    SignUp
+                </div>
+                <div class="signIndescription">
+                    Welcome Back, SignUp to get started
+                </div>
+                <form class="full-width">
+                    <mat-form-field class="input-feild" appearance="fill">
+                        <mat-label class="label">Your Name</mat-label>
+                        <input class="text-input-feild" matInput placeholder="John Doe" id="name" name="name" type="name" [(ngModel)]="name" />
+                    </mat-form-field>
+
+                    <mat-form-field class="input-feild email-validate" appearance="fill">
+                        <mat-label class="label">Your Email</mat-label>
+                        <input class="text-input-feild" matInput placeholder="email@gmail.com" id="email" name="email" type="email" [(ngModel)]="email" email="true" />
+                    </mat-form-field>
+                    <div class="error-message" *ngIf="emailError">
+                        Email field is required
+                    </div>
+
+                    <mat-form-field class="input-feild" appearance="fill">
+                        <mat-label class="label">Password</mat-label>
+                        <input class="text-input-feild" matInput type="password" placeholder="*********" name="password" id="password" [(ngModel)]="password" />
+                    </mat-form-field>
+                    <div class="error-message" *ngIf="passwordError">
+                        Password field is required
+                    </div>
+
+                    <div class="btn-primary" style="--mt: 3rem" (click)="signup()">
+                        Sign Up
+                    </div>
+                    <div class="error-message" *ngIf="error">
+                        Invalid user name and passwrod. Please try again
+                    </div>
+                </form>
+
+                <div class="Divider"></div>
+                <div class="social-logins-container">
+                    <img class="social-logins-button" src="./../../../../assets/icons/apple.png" />
+                    <img class="social-logins-button" src="./../../../../assets/icons/google.png" />
+                    <img class="social-logins-button" src="./../../../../assets/icons/github.png" />
+                </div>
+
+                <div class="signup-text-container">
+                    <div class="discription-text">Already using fusion?</div>
+                    <div [routerLink]="['/account/signin']" class="action-text">
+                        Sign in
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyRight">
+        © Fusion 2023
+    </div>
+</div>
+
+<!-- Side panel layout same as in v1 -->
+
+<!-- <div class="layout-side">
+      <div class="left-side"></div>
+  
+      <div class="right-side"></div>
+  </div>  -->
+
+<!-- loader -->
+<div *ngIf="_commonService.isLoading" class="spinner-div">
+    <div class="loading-spinner-ripple">
+        <div class="spinner">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>

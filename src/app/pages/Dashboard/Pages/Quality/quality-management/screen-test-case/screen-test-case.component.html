@@ -1,0 +1,123 @@
+<div class="container">
+
+    <div class="top-container">
+        <div>
+            <div class="heading">
+                Quality Management > Test Cycles > Dashboard Account Activation
+            </div>
+            <div class="overview">
+                Sign Up
+            </div>
+        </div>
+        <div class="dialog-btn" mat-raised-button>
+            <img class="plus" src="../../../../../../../assets/icons/plus.svg"> Add New Screen
+        </div>
+    </div>
+
+    <div>
+        <div class="list-container">
+            <div class="list-headers">
+
+                <div class="list-header-content-container">
+                    Ref ID
+                </div>
+                <div class="list-header-content-container">
+                    Test Case
+                </div>
+                <div class="list-header-content-container">
+                    Status
+                </div>
+                <div class="list-header-content-container">
+                    Type
+                </div>
+                <div class="list-header-content-container">
+                    Expected Result
+                </div>
+
+                <div class="right-icon-container">
+
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+
+        <div class="list-tile" *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+            <div class="list-tile-data">
+                <div class="list-tile-data-text"><span class="tc">TC-90</span></div>
+            </div>
+            <div class="list-tile-data">
+                <div class="list-tile-data-text"><span class="case"></span>Sign in button functionality</div>
+            </div>
+            <div class="list-tile-data">
+                <div class="list-tile-data-text"><span class="status">PASSED</span></div>
+            </div>
+            <div class="list-tile-data">
+                <div class="list-tile-data-text"><span class="type">Functional</span></div>
+            </div>
+            <div class="list-tile-data">
+                <div class="list-tile-data-text"><span class="result">Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit..</span></div>
+            </div>
+
+            <div class="right-icon-container" [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
+                <div class="list-tile-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="M0 0h16v16H0z" />
+                            <path
+                                d="M4 9.333c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 2.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.941.391c.262.261.392.575.392.942s-.13.68-.392.941c-.26.262-.574.392-.941.392zm4 0c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 6.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941A1.284 1.284 0 0 1 8 9.333zm4 0c-.367 0-.68-.13-.942-.392A1.283 1.283 0 0 1 10.667 8c0-.367.13-.68.391-.942.261-.26.575-.391.942-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941a1.284 1.284 0 0 1-.942.392z"
+                                fill="#000" fill-rule="nonzero" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <mat-menu #menu="matMenu">
+                <div class="title" mat-menu-item (click)="showDialog()">
+                    <img src="../../../../../../../assets/icons/icon-s-idebar-home-active-black.svg">
+                    <div class="menu-title">Edit Details</div>
+                </div>
+                <div class="title" mat-menu-item (click)="showDetails()">
+                    <img src="../../../../../../../assets/icons/icon-s-idebar-home-active-black.svg">
+                    <div class="menu-title">Delete</div>
+                </div>
+            </mat-menu>
+
+        </div>
+
+        <div class="sidepanel" [ngClass]="{active: sidePanelOpen}">
+            <div class="content-panel">
+                <div class="closebtn" (click)="sidePanelOpen=!sidePanelOpen">&times;</div>
+                <div class="top-containers">
+                    <div class="Activity-History">
+                        Add New Test Case
+                    </div>
+
+                    <div class="image"></div>
+
+                    <div class="heading"> Title </div>
+                    <input type="text" placeholder="Enter Title Here" class="input-title">
+                    <div class="heading"> Reference ID </div>
+                    <input type="text" placeholder="#98687687657657" class="input-title">
+                    <div class="types-flex">
+                        <div class="type"><img src="../../../../../../../assets/filters/i-os-icon-small-mobile-project.svg"> Functional</div>
+                        <div class="type"><img src="../../../../../../../assets/filters/i-os-icon-small-mobile-project.svg"> Non-Functional</div>
+                    </div>
+                    <div class="heading"> Expected Result </div>
+                    <div class="textArea">
+                        <textarea placeholder="Enter Text Here"></textarea>
+                    </div>
+                    <div class="btn-secandry">
+                        Add Test Case</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="addTest">
+        <img src="../../../../../../../assets/filters/akar-icons-circle-plus-fill.svg">
+        <div class="quickAdd">
+            Add Quick Test Case
+        </div>
+    </div>
+
+</div>

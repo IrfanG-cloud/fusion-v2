@@ -1,0 +1,118 @@
+<div class="container-wrapper">
+    <div class="heading">
+        Account Settings
+    </div>
+    <div class="sub-heading">
+        You can find all workspace settings here
+    </div>
+
+    <div class="Rectangle-container">
+        <div class="Profile">
+            Profile
+        </div>
+        <div class="profile-picture">Profile Picture</div>
+        <div class="flex-row">
+            <input type="file" accept="image/*" (change)="upload($event)" hidden #file />
+
+
+            <img [src]="userImage" class="profile-capture" />
+
+            <div class="btn-profile">
+                <div class="upload-profile" (click)="file.click()"><img src="../../../../../../assets/icons/material-symbols-cloud-upload.svg"> Upload Picture
+                </div>
+
+                <div class="remove-profile">
+                    Remove
+                </div>
+            </div>
+
+
+        </div>
+        <div>
+            <div class="flex-row1">
+
+                <div class="Project-Name">
+                    <div>
+                        First Name
+                    </div>
+
+                    <div class="Rectangle-input1">
+                        <input class="project-name-input" type="text" [(ngModel)]="firstName" [value]="firstName" />
+                    </div>
+                </div>
+
+
+
+                <div class="Project-Name">
+                    <div>
+                        Last Name
+                    </div>
+                    <div class="Rectangle-input1">
+                        <input class="project-name-input" type="text" [(ngModel)]="lastName" [value]="lastName" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="Project-Name">
+            <div>
+                Email
+            </div>
+
+            <div class="Rectangle-input1">
+                <div class="project-label">
+                    <input class="project-name-input" type="email" [(ngModel)]="email" [value]="email" />
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="btn-secandry" (click)="onChangeInformation()"> Save Changes</div>
+        </div>
+    </div>
+
+    <div class="Rectangle-container">
+        <div>
+            <div class="Profile">
+                Change Password
+            </div>
+
+            <div>
+                <div class="Project-Name">
+                    Current Password
+                </div>
+
+                <div class="Rectangle-input">
+                    <input class="project-name-input" type="password" [(ngModel)]="currentPassword" />
+                </div>
+
+                <div class="Project-Name">
+                    New Password
+                </div>
+
+                <div class="Rectangle-input">
+                    <input class="project-name-input" type="password" [(ngModel)]=" newPassword" />
+                </div>
+
+                <div class="Project-Name">
+                    Confirm New Password
+                </div>
+
+                <div class="Rectangle-input">
+                    <input class="project-name-input" type="password" [(ngModel)]="confirmPassword" />
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="btn-secandry" (click)="onChangePassword()"> Save Changes</div>
+        </div>
+    </div>
+
+    <div *ngIf="commonService.isLoading" class="spinner-div">
+        <div class="loading-spinner-ripple">
+            <div class="spinner">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+</div>

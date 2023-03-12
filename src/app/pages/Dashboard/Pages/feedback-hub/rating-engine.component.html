@@ -1,0 +1,94 @@
+<div class="container">
+    <ng-container>
+        <div class="top-heading">Rating Engine</div>
+    </ng-container>
+    <ng-container>
+        <div class="feature-intro-general-wrapper" [ngClass]="{ 'two-sides-container': showRatingSetting}">
+            <div *ngIf="!showRatingSetting" class="content-center">
+                <div class="hello-icon"></div>
+                <div class="feature-heading">
+                    Welcome to <br> Fusion Rating Engine
+
+                </div>
+                <p class="feature-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet urna quam. Donec sodales lectus erat. Interdum et malesuada fames ac ante ipsum primis
+                    in
+                    faucibus.
+                    Morbi ac nulla dictum, interdum lectus sed, eleifend sem.
+                </p>
+                <div class="btn-secandry" *ngIf="!startIntegration" (click)="startIntegration=true">Start</div>
+                <div class="btn-secandry" *ngIf="startIntegration" (click)="showRatingSetting=true">Integrate SDK</div>
+            </div>
+            <!-- Left Side -->
+            <div *ngIf="showRatingSetting" class="left-side">
+                <div class="rating-icon"></div>
+                <!-- rating Threshold Section -->
+                <ng-container *ngIf="selectedRatingEnginScreens.type=='ratingThresholdSection'">
+                    <div class="title">{{selectedRatingEnginScreens.title}}</div>
+                    <div class="description">{{selectedRatingEnginScreens.description}}</div>
+                    <div class="rating-bar">
+                        <input type="range" min="1" max="5" value="1" class="slider" [ngStyle]="ratingInputStyles" (input)="inputRatingNumber($event)">
+                        <div class='slider-child'>
+                            <div class="item" *ngFor="let in of counter(5);let i = index">
+                                <div class="number">{{i+1}}</div>
+                                <div class="star" [ngClass]="{ 'yellow': ratingNumber>=i+1}">&#9733;</div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <!-- customer Feedback Section -->
+                <ng-container *ngIf="selectedRatingEnginScreens.type=='customerFeedbackSection'">
+                    <div class="title">{{selectedRatingEnginScreens.title}}</div>
+                    <div class="description">{{selectedRatingEnginScreens.description}}</div>
+                    <div cdkDropList (cdkDropListDropped)="drop($event)">
+                        <div class="input-warpper" *ngFor="let input of selectedRatingEnginScreens?.inputs;let k = index" cdkDrag>
+                            <div class="drag-drop-icon">
+                                <span></span> <span></span> <span></span>
+                            </div>
+                            <input type="text" maxlength="40">
+                            <div class="minus-btn" (click)="removeInput(k)" *ngIf="selectedRatingEnginScreens?.inputs?.length!=1"> &minus; </div>
+                            <div class="plus-btn" (click)="addInput()" *ngIf="selectedRatingEnginScreens?.inputs?.length==k+1"> &#43;</div>
+                        </div>
+                        <div class="customized-feedback">
+                            <div class="title">Customized feedback</div>
+                            <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet urna quam. Donec sodales lectus erat.</div>
+                            <div class="toggle-btn-warpper" [ngClass]="{ 'selected': customizedFeedback}">
+                                <div class="label">Allow customized feedback</div>
+                                <mat-slide-toggle [checked]="customizedFeedback" [(ngModel)]="customizedFeedback"></mat-slide-toggle>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <!-- app Store Rating Section -->
+                <ng-container *ngIf="selectedRatingEnginScreens.type=='appStoreRatingSection'">
+                    <div class="title">{{selectedRatingEnginScreens.title}}</div>
+                    <div class="description">{{selectedRatingEnginScreens.description}}</div>
+                    <div class="smaill-buttons gray">
+                        <div class="btn-secandry">Yes</div>
+                        <div class="btn-secandry selected">No</div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="selectedRatingEnginScreens.type=='occurancesSection'">
+                    <div class="title">{{selectedRatingEnginScreens.title}}</div>
+                    <div class="description">{{selectedRatingEnginScreens.description}}</div>
+                </ng-container>
+                <!-- Footer Section -->
+                <div class="footer-section">
+                    <div class="steper-icons">
+                        <div class="ovl" *ngFor="let in of counter(4);let j = index" [ngClass]="{ 'blue': selectedRatingEnginScreens.id>=j}"> </div>
+                    </div>
+                    <div class="section-title">{{selectedRatingEnginScreens.name}}</div>
+                    <div class="btn-secandry" (click)="ratingEnginScreensNext(this.selectedRatingEnginScreens.id+1)">Next</div>
+                </div>
+            </div>
+            <!-- Right Side -->
+            <div class="right-side">
+                <div class="device-preview-img"> </div>
+                <div class="img-heading">
+                    Device Preview
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+</div>

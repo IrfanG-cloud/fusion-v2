@@ -1,0 +1,141 @@
+<div class="container">
+
+    <div class="project-header-seaction">
+        <div class="project-title">
+            <div class="project-name">Projects</div>
+        </div>
+
+        <div class="btn-secandry" [routerLink]="['/project/add-new']">
+            New Project
+        </div>
+    </div>
+
+    <div class="filters-bar-container">
+        <div class="filters-bar-container-right">
+            <div class="search-bar">
+                <input type="text" name="search" placeholder="Search Projects" class="search-input" />
+            </div>
+            <div class="filters-bar">
+                <div class="filter-tile" (click)="onSelectTab(filter.id, filter.name)" *ngFor="let filter of filtersOptions" [ngClass]="{ active: tab == filter?.id }">
+                    {{ filter.name }}
+                </div>
+            </div>
+        </div>
+        <div class="show-type">
+            <div class="icon" (click)="onClickListShow('list')" [ngClass]="{ active:'list'==displayType}">
+                <svg width="12" height="12" viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
+                    <g stroke="#000" fill="none" fill-rule="evenodd" stroke-linecap="round">
+                        <path d="M13 1.269H1M13 5.038H1M13 8.731H1" />
+                    </g>
+                </svg>
+            </div>
+            <div class="icon" (click)="onClickListShow('grid')" [ngClass]="{ active: 'grid'==displayType}">
+                <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#000" fill-rule="evenodd">
+                        <rect width="2" height="2" rx="1" />
+                        <rect x="6" width="2" height="2" rx="1" />
+                        <rect x="6" y="6" width="2" height="2" rx="1" />
+                        <rect y="6" width="2" height="2" rx="1" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <section class="main" *ngIf="displayType=='grid'">
+        <div class="dashboard-layout">
+            <ng-container *ngIf="!_commonService.isLoading">
+                <!-- Project Card box displaying -->
+                <div class="projects-cards-container">
+                    <div *ngFor="let project of projects; let i = index" class="project-card-div">
+                        <app-project-tile [data]="project"></app-project-tile>
+                    </div>
+
+
+                </div>
+                <div class="no-record-found-container" *ngIf="_commonService.isObjectEmpty(projects)">
+                    <h2 class="title">Welcome to fusion board</h2>
+                    <p class="description">
+                        Start unlocking more value faster. With our fusion, you can rate an app and share your feedback along with the issues which you are facing to improve the
+                        user experience and
+                        quality of app.
+                    </p>
+
+                    <div class="btn-secandry" [routerLink]="['/project/add-new']">Create New Project</div>
+                </div>
+            </ng-container>
+
+            <!-- loader -->
+            <div *ngIf="_commonService.isLoading" class="spinner-div">
+                <div class="loading-spinner-ripple">
+                    <div class="spinner">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="main" *ngIf="displayType=='list'">
+        <div class="dashboard-layout">
+            <div class="list-container" *ngIf="displayType=='list'">
+                <div class="list-headers">
+
+                    <div class="list-header-content-container">
+
+                        PROJECT
+                    </div>
+                    <div class="list-header-content-container">
+                        OS
+                    </div>
+                    <div class="list-header-content-container">APP ID</div>
+                    <div class="list-header-content-container">
+                        ENVIRONMENT
+                    </div>
+
+                    <div class="right-icon-container">
+
+                    </div>
+                </div>
+
+                <div class="list-tile" *ngFor="let project of projects" (click)="openDetails(project)">
+
+                    <div class="list-tile-description">
+                        <img *ngIf="project?.p_platformType== 'ios'" src="../../../../../../assets/icons/icons-projects-i-os.svg" class="icon" />
+                        <img *ngIf="project?.p_platformType == 'android'" src="../../../../../../assets/icons/android-icon.png" class="icon" />
+
+                        <b>{{project.p_title}}</b>
+                    </div>
+                    <div class="list-tile-description">
+                        {{project.p_platformType}}
+                    </div>
+                    <div class="list-tile-description">
+                        {{project.p_appIdIdentifier}}
+                    </div>
+                    <div class="list-tile-description">
+                        {{project.p_environment}}
+                    </div>
+
+
+                    <div class="right-icon-container" (click)="$event.stopPropagation()">
+                        <div class="list-tile-icon">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <g fill="none" fill-rule="evenodd">
+                                    <path d="M0 0h16v16H0z" />
+                                    <path
+                                        d="M4 9.333c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 2.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.941.391c.262.261.392.575.392.942s-.13.68-.392.941c-.26.262-.574.392-.941.392zm4 0c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 6.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941A1.284 1.284 0 0 1 8 9.333zm4 0c-.367 0-.68-.13-.942-.392A1.283 1.283 0 0 1 10.667 8c0-.367.13-.68.391-.942.261-.26.575-.391.942-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941a1.284 1.284 0 0 1-.942.392z"
+                                        fill="#000" fill-rule="nonzero" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>

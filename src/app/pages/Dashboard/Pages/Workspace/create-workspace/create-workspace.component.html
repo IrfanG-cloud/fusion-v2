@@ -1,0 +1,60 @@
+<!-- Centered layout as in v2 designs -->
+
+<div class="layout-centered">
+  <div class="container">
+    <div class="content-container">
+      <div class="logo-container">
+        <div class="logo-title">
+          <img
+            src="./../../../../assets/images/logo.png"
+            alt="logo"
+            class="logo-image"
+          />
+        </div>
+        <!-- <div class="logo-title">Fussion</div> -->
+      </div>
+
+      <div class="title">Create Workspace</div>
+      <div class="description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet
+        urna quam. Donec sodales lectus erat.
+      </div>
+
+      <form class="full-width">
+        <mat-form-field class="input-feild" appearance="fill">
+          <mat-label class="label">Workspace Name</mat-label>
+          <input
+            class="text-input-feild"
+            matInput
+            id="title"
+            name="title"
+            type="title"
+            [(ngModel)]="title"
+          />
+        </mat-form-field>
+
+        <div class="btn-primary" (click)="createWorkspace()" style="--mt: 2rem">
+          Continue
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- loader -->
+<div *ngIf="_commonService.isLoading" class="spinner-div">
+  <div class="loading-spinner-ripple">
+    <div class="spinner">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Side panel layout same as in v1 -->
+
+<!-- <div class="layout-side">
+      <div class="left-side"></div>
+  
+      <div class="right-side"></div>
+  </div>  -->

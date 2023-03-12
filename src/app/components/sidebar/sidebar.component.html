@@ -1,0 +1,125 @@
+<div>
+    <div class="sidebar-container">
+        <div class="inner-container">
+            <div>
+
+                <div class="top-avatar" (click)="toggleShowWorkspaceDialog($event)">
+                    {{
+                    lastVisited_workspace?.ws_title?.charAt(0) +
+                    lastVisited_workspace?.ws_title?.charAt(1)
+                    }}
+                </div>
+                <div class="home-icon" (click)="backToHome()">
+                    <img src="../../../assets/icons/material-symbols-home-rounded.svg" />
+                </div>
+            </div>
+
+            <div class="bottom-icons-container" >
+                <img [src]="userData.avatar" (click)="onShowUserDialog($event)" class="user-avatar" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="workspace-dialoag" [ngClass]="{active:showWorkspaceDialog}">
+    <div class="workspace-list" *ngIf="showWorkspaceDialog">
+        <div *ngIf="userWorkspaces.length>4">
+            <div class="workspace-list-tile" *ngFor="let i of counter(4); let ind=index" [ngClass]="{active:lastVisited_workspace.ws_kuid==userWorkspaces[ind].ws_kuid}"
+                (click)="selectWorkspace(userWorkspaces[ind])">
+                <img src="https://images.unsplash.com/photo-1675410200389-903e50c46cbf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                    class="image-mask" />
+
+                <div class="info-tile">
+                    <div class="title" [ngClass]="{active:lastVisited_workspace.ws_kuid==userWorkspaces[ind].ws_kuid}">{{userWorkspaces[ind]?.ws_title}}</div>
+                    <p>{{userWorkspaces[ind].ws_members}} Members</p>
+                </div>
+                <img *ngIf="lastVisited_workspace.ws_kuid==userWorkspaces[ind].ws_kuid" src="../../../assets/icons/material-symbols-check-small-rounded_blue.svg"
+                    class="selected-icon" />
+            </div>
+        </div>
+        <div *ngIf="userWorkspaces.length<=4">
+            <div class="workspace-list-tile" *ngFor="let i of counter(userWorkspaces.length); let ind=index"
+                [ngClass]="{active:lastVisited_workspace.ws_kuid==userWorkspaces[ind].ws_kuid}" (click)="selectWorkspace(userWorkspaces[ind])">
+                <img src="https://images.unsplash.com/photo-1675410200389-903e50c46cbf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                    class="image-mask" />
+
+                <div class="info-tile">
+                    <div class="title" [ngClass]="{active:lastVisited_workspace.ws_kuid==userWorkspaces[ind].ws_kuid}">{{userWorkspaces[ind]?.ws_title}}</div>
+                    <p>{{userWorkspaces[ind].ws_members}} Members</p>
+                </div>
+                <img *ngIf="lastVisited_workspace.ws_kuid==userWorkspaces[ind].ws_kuid" src="../../../assets/icons/material-symbols-check-small-rounded_blue.svg"
+                    class="selected-icon" />
+            </div>
+        </div>
+    </div>
+
+    <div class="view-all-workspace" *ngIf="showWorkspaceDialog" (click)="viewAllWorkspaces()">
+        View All Workspaces
+    </div>
+
+    <div class="divider" *ngIf="showWorkspaceDialog"></div>
+
+    <!-- <div class="row-container" *ngIf="showWorkspaceDialog">
+        <img src="../../../assets/icons/icon-s-idebar-add-idle-black.svg" />
+        <div class="icon-text">
+            Invite People
+        </div>
+    </div> -->
+    <div class="row-container" *ngIf="showWorkspaceDialog" (click)="manageWorkspace()">
+        <img src="../../../assets/icons/icon-s-idebar-settings-idle.svg" />
+        <div class="icon-text">
+            Manage Workspace
+        </div>
+    </div>
+    <div class="row-container" (click)="onCreateNewWorkspace()" *ngIf="showWorkspaceDialog">
+        <img src="../../../assets/icons/icon-s-idebar-add-idle-black.svg" />
+        <div class="icon-text">
+            Create Workspace
+        </div>
+    </div>
+</div>
+<div class="user-dialoag" [ngClass]="{active:isShowUserDialog}">
+
+    <div class="user-profile-container" *ngIf="isShowUserDialog">
+        <img [src]="userData.avatar" class="user-image" target="_self" download />
+        <div class="info">
+            <div class="name">
+                {{userData.fullName}}
+            </div>
+            <div class="email">
+                {{userData.email}}
+            </div>
+        </div>
+    </div>
+    <div class="divider" *ngIf="isShowUserDialog"></div>
+
+    <div class="row-container" *ngIf="isShowUserDialog" (click)="manageProfile()">
+        <img src="../../../assets/icons/icon-s-idebar-settings-idle.svg" />
+        <div class="icon-text">
+            Manage Profile
+        </div>
+    </div>
+    <div class="divider" *ngIf="isShowUserDialog"></div>
+    <div class="row-container" *ngIf="isShowUserDialog">
+        <img src="../../../assets/icons/icon-s-idebar-settings-idle.svg" />
+        <div class="icon-text">
+            Help Center
+        </div>
+    </div>
+    <div class="row-container" *ngIf="isShowUserDialog">
+        <img src="../../../assets/icons/icon-s-idebar-settings-idle.svg" />
+        <div class="icon-text">
+            Term & Conditions
+        </div>
+    </div>
+    <div class="divider" *ngIf="isShowUserDialog"></div>
+
+    <div class="row-container" *ngIf="isShowUserDialog" (click)="signout()">
+        <img src="../../../assets/icons/octicon-sign-out-16.svg" />
+        <div class="icon-text">
+            Log Out
+        </div>
+    </div>
+</div>

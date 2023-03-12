@@ -1,0 +1,28 @@
+@import "./../../../../assets/styling/account_layout.scss";
+
+.detail-seaction {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+
+  .detail-title {
+    font-size: $font-size-ob-title;
+    font-weight: bold;
+  }
+
+  .detail-description {
+    font-size: $font-size-16;
+  }
+
+  .btn-resend-email {
+    width: 100%;
+    margin-top: 0.5rem;
+    text-decoration: underline;
+    font-size: $font-size-18;
+    cursor: pointer;
+    color: $primary-color;
+  }
+}

@@ -1,0 +1,72 @@
+<div class="container">
+
+    <div class="project-header-seaction">
+        <div class="project-title">
+            <div class="top-heading">Workspace Management</div>
+        </div>
+
+        <div class="btn-secandry" [routerLink]="['/workspace/create-workspace']">
+            New Workspace
+        </div>
+    </div>
+
+    <div class="filters-bar-container">
+        <div class="filters-bar-container-right">
+            <div class="search-bar">
+                <input type="text" name="search" placeholder="Search Workspace" class="search-input" />
+            </div>
+            <div class="filters-bar">
+                <div class="filter-tile" (click)="onSelectTab(filter.id, filter.name)" *ngFor="let filter of filtersOptions" [ngClass]="{ active: tab == filter?.id }">
+                    {{ filter.name }}
+                </div>
+            </div>
+        </div>
+        <div class="show-type">
+            <div class="icon" [ngClass]="{ active: false }">
+                <svg width="12" height="12" viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
+                    <g stroke="#000" fill="none" fill-rule="evenodd" stroke-linecap="round">
+                        <path d="M13 1.269H1M13 5.038H1M13 8.731H1" />
+                    </g>
+                </svg>
+            </div>
+            <div class="icon" [ngClass]="{ active: true }">
+                <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#000" fill-rule="evenodd">
+                        <rect width="2" height="2" rx="1" />
+                        <rect x="6" width="2" height="2" rx="1" />
+                        <rect x="6" y="6" width="2" height="2" rx="1" />
+                        <rect y="6" width="2" height="2" rx="1" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <section class="main">
+        <div class="dashboard-layout">
+            <ng-container *ngIf="!commonService.isLoading">
+                <!-- Project Card box displaying -->
+                <div class="projects-cards-container">
+                    <div *ngFor="let workspace of workspaces; let i = index" class="project-card-div">
+                        <app-workspace-tile [data]="workspace"></app-workspace-tile>
+                    </div>
+
+                    <div class="no-record-found" *ngIf="commonService.isObjectEmpty(workspaces)">
+                        <h2>No Data to Display</h2>
+                    </div>
+                </div>
+            </ng-container>
+
+            <!-- loader -->
+            <div *ngIf="commonService.isLoading" class="spinner-div">
+                <div class="loading-spinner-ripple">
+                    <div class="spinner">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

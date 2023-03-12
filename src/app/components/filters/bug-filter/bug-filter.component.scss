@@ -1,0 +1,301 @@
+@import "../../../../assets/styling/principles/variables";
+
+.filter-container {
+    width: 30.937rem;
+    height: 100%;
+    padding: 0 0 24px;
+    border-radius: 8px;
+    // box-shadow: 0 2px 20px 0 rgba(180, 180, 180, 0.5);
+    background-color: $white;
+}
+
+.filters-header {
+    width: 495px;
+    height: 3.25rem;
+    margin: 0 0 0px;
+    padding: 18px 0px 25px 0px;
+    border-radius: 6px;
+    background-color: #f6f6f6;
+
+    .display-left {
+        float: right;
+        width: 6rem;
+        height: 3rem;
+        background-color: $primary-color;
+        margin-top: -10px;
+        margin-right: 5px;
+        border-radius: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:white;
+        cursor: pointer;
+    }
+}
+
+.filters {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-family: "HelveticaNeue";
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #3c3c3c;
+}
+
+
+.Add-Condition {
+    width: 89px;
+    height: 16px;
+    margin: 3px 0 5px 12px;
+    font-family: "HelveticaNeue";
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $blue-100;
+}
+
+.btn-toggle {
+    display: flex;
+    padding-left: 20px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+select {
+    width: 200px;
+    height: 37px;
+    margin: 20px 0px 21px 19px;
+    padding: 9px 11px 9px 16px;
+    border-radius: 4px;
+    box-shadow: 0 2px 47px 0 rgb(237 237 237 / 50%);
+    border: solid 1.2px #f1f1f1;
+    background-color: $white;
+}
+
+::ng-deep option {
+    width: 35px;
+    height: 14px;
+    margin: 0 129px 11.5px 12px;
+    font-family: "HelveticaNeue";
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #393939;
+}
+
+.selection {
+    width: 200px;
+    height: 37px;
+    margin: 20px 0px 21px 19px;
+    padding: 9px 11px 9px 16px;
+    border-radius: 4px;
+    box-shadow: 0 2px 47px 0 rgb(237 237 237 / 50%);
+    border: solid 1.2px #f1f1f1;
+    background-color: $white;
+
+}
+
+.icon-image {
+    width: 20px;
+    height: 15px;
+    margin-right: 5px;
+    margin-bottom: -2px;
+}
+
+.img {
+    object-fit: contain;
+    width: 10px;
+    height: 2px;
+    margin-bottom: 2px;
+    margin-right: 2px;
+}
+
+.removebtn {
+    width: 24px;
+    height: 24px;
+    margin: 24px 20px 25px 16px;
+    padding: 0px 5px 20px 7px;
+    background-color: #fff2f2;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.plusbtn {
+    cursor: pointer;
+}
+
+
+.dropdown {
+    display: flex;
+    width: 495px;
+    background-color: white;
+    margin-bottom: -16px;
+}
+
+.name-icon {
+    display: flex;
+    flex-direction: row;
+}
+
+.color-background {
+    padding: 8px 9px;
+    background-color: #ececec;
+    border-radius: 15px;
+    background-color: $grey-030;
+}
+
+.oval {
+    width: 12px;
+    height: 12px;
+    background-color: #4a80f8;
+    border-radius: 5px;
+    margin-left: 8px;
+}
+
+.abbreviation {
+    margin-top: 10px;
+    width: 14px;
+    height: 12px;
+    font-family: "HelveticaNeue";
+    font-size: 10px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: black;
+}
+
+.innerSide {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+
+}
+
+.name {
+    margin-top: 10px;
+    width: 77px;
+    height: 15px;
+    font-family: "HelveticaNeue";
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #131415;
+    font-weight: bold;
+}
+
+.statusStage {
+    margin-left: 10px;
+    width: 77px;
+    height: 15px;
+    font-family: "HelveticaNeue";
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #131415;
+    font-weight: bold;
+}
+
+.description {
+    width: 61px;
+    height: 10px;
+    margin: 2px 81px 0 0;
+    font-family: "HelveticaNeue";
+    font-size: 8.2px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #a5a5a5;
+}
+
+.mat-option>.active {
+    background-color: $white;
+}
+
+::ng-deep .mat-option {
+    padding: 0 7px !important;
+}
+
+.search {
+    width: 184px;
+    height: 30px;
+    // margin: 0 8px 10px;
+    padding: 7px 66px 7px 8px;
+    border-radius: 10px;
+    border: solid 1px #e7e7e7;
+    background-color: $white;
+}
+
+::ng-deep .mat-select-panel {
+    margin-top: 45px !important;
+    max-height: 100% !important;
+    max-width: 0px !important;
+}
+
+
+option {
+
+    width: auto;
+    height: 15px;
+    margin: 0 0 0 19px;
+    font-family: "HelveticaNeue";
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #131415;
+
+}
+
+::ng-deep .mat-select {
+    width: 200px;
+    height: auto;
+    margin: 20px 16px 21px 19px;
+    padding: 9px 11px 9px 16px;
+    border-radius: 4px;
+    box-shadow: 0 2px 47px 0 rgba(237, 237, 237, 0.5);
+    border: solid 1.2px #f1f1f1;
+    background-color: white;
+}
+
+.icon1 {
+    margin-right: 5px;
+}
+
+.avatar-icon {
+    width: 28px;
+    height: 28px;
+    margin: 0 12px 0 0;
+}
+
+
+
+.flex-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

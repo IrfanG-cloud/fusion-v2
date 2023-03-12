@@ -1,0 +1,400 @@
+<div class="screen-container">
+
+    <div class="container">
+        <div class="top-container">
+            <div class="icon-title">
+                Issues
+            </div>
+        </div>
+
+        <div class="filters-bar-container">
+
+
+            <div class="flex-row">
+                <div class="search-bar">
+                    <input type="text" name="search" (keyup)="onKeyUp()" placeholder="Search Issues" [(ngModel)]="bugSearch" [value]="bugSearch" class="search-input" />
+                </div>
+                <!-- <div class="filters-bar">
+                    <div class="filter-tile" (click)="onSelectTab(filter.id)" *ngFor="let filter of filtersOptions" [ngClass]="{ active: tab == filter?.id }">
+                        {{ filter.name }}
+                    </div>
+                </div> -->
+            </div>
+            <div class="flex-row">
+                <div class="filters-options" (click)="isShowFiltercontainer()">
+                    <img src="../../../../.././../assets/icons/icons-filters.svg" class="filter-icon" />
+                </div>
+
+                <div class="show-type">
+                    <div class="icon" [ngClass]="{ active: displayType=='list' }" (click)="changeDisplayTime('list')">
+                        <svg width="12" height="12" viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
+                            <g stroke="#000" fill="none" fill-rule="evenodd" stroke-linecap="round">
+                                <path d="M13 1.269H1M13 5.038H1M13 8.731H1" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="icon" [ngClass]="{ active: displayType=='canvas' }" (click)="changeDisplayTime('canvas')">
+                        <svg width="9" height="14" viewBox="0 0 9 14" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="rotate(90 4.5 4.5)" fill="#000" fill-rule="nonzero">
+                                <rect width="10" height="1" rx=".5" />
+                                <rect y="4" width="6" height="1" rx=".5" />
+                                <rect y="8" width="14" height="1" rx=".5" />
+                            </g>
+                        </svg>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-container" *ngIf="displayType=='list' && !commonService.isObjectEmpty(bugsList)">
+            <div class="list-headers">
+                <mat-checkbox class="list-header-content-container" (click)="onSelectAll($event)"></mat-checkbox>
+
+                <div class="list-header-content-container">
+                    ISSUES
+                </div>
+                <div class="list-header-content-container">
+                    RELEASE
+                </div>
+                <div class="list-header-content-container">
+                    TAGS
+                </div>
+                <div class="list-header-content-container">
+                    ASSIGNE
+                </div>
+                <div class="list-header-content-container">
+                    STATUS
+                </div>
+                <div class="right-icon-container">
+
+                </div>
+            </div>
+
+            <div class="list-tile" *ngFor="let bug of bugsList" (click)="openDetails(bug)">
+                <mat-checkbox class="right-tile" [(ngModel)]="bug.isChecked" [checked]="bug.isChecked" (click)="onSelectItem($event,bug)"></mat-checkbox>
+
+                <!-- <div class="left-tile" (click)="openDetails(bug)"> -->
+                <div class="list-tile-description">
+                    <div class="list-tile-description-title">{{bug.bugTitle}}</div>
+                    <div class="list-tile-description-description">
+                        {{bug.Description}}
+                    </div>
+
+                </div>
+                <div class="list-tile-data">
+                    <div class="list-tile-data-text">V2.0</div>
+                </div>
+                <div class="list-tile-status">
+                    <div class="list-tile-status-widget" style="--color: #ffdcd9">
+                        Web
+                    </div>
+                </div>
+                <div class="list-tile-assignee">
+
+                    <img src="'../../../../../../../../assets/images/avatar.png" class="list-tile-assignee-avatar" />
+
+                    <div class="list-tile-assignee-text">{{bug.fullName}}</div>
+                </div>
+                <div class="list-tile-status" (click)="$event.stopPropagation()">
+
+
+                    <div class="flex-row" *ngIf="'xyz1' == bug.resolutionStatusKuid">
+                        <img class="icon" src="../../../../../../assets/icons/i-os-icon-medium-without-padding-status-to-do-light.svg" />
+                        To Do
+                    </div>
+                    <div class="flex-row" *ngIf="'xyz2' == bug.resolutionStatusKuid">
+                        <img class="icon" src="../../../../../../assets/icons/i-os-icon-medium-without-padding-status-in-progress.svg" />
+
+                        In Progress
+                    </div>
+                    <div class="flex-row" *ngIf="'xyz3' == bug.resolutionStatusKuid">
+                        <img class="icon" src="../../../../../../assets/icons/i-os-icon-medium-without-padding-status-done.svg" />
+
+                        Resolved
+                    </div>
+                    <div class="flex-row" *ngIf="null == bug.resolutionStatusKuid">
+                        NULL
+                    </div>
+                </div>
+
+                <div class="right-icon-container" [matMenuTriggerFor]="menuOptions" (click)="$event.stopPropagation()">
+                    <div class="list-tile-icon">
+                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M0 0h16v16H0z" />
+                                <path
+                                    d="M4 9.333c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 2.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.941.391c.262.261.392.575.392.942s-.13.68-.392.941c-.26.262-.574.392-.941.392zm4 0c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 6.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941A1.284 1.284 0 0 1 8 9.333zm4 0c-.367 0-.68-.13-.942-.392A1.283 1.283 0 0 1 10.667 8c0-.367.13-.68.391-.942.261-.26.575-.391.942-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941a1.284 1.284 0 0 1-.942.392z"
+                                    fill="#000" fill-rule="nonzero" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <mat-menu #menuOptions="matMenu" class="menu-container">
+                    <div class="menu-item" (click)="deleteBug(bug)">
+                        <div class="Rectangle-icon"></div>
+                        <div class="menu-item-text">Delete Bug</div>
+                    </div>
+
+                </mat-menu>
+            </div>
+
+
+            <div class="pagination-container" *ngIf="bugsList.length>10 || page!=0">
+
+
+                <div class="previous-btn" (click)="onPreviousPage()">
+                    &laquo;
+                </div>
+                <div class="next-btn" (click)="onNextPage()">
+                    &raquo;
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ---------------------------------------------------------- -->
+
+
+        <!-- Canvas type view with drag and drop functionality -->
+        <div class="canvas-view" *ngIf="displayType=='canvas'">
+
+            <div class="canvas-container" cdkDropListGroup cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo"
+                [cdkDropListConnectedTo]="[doneList,InProgessList,InValidList]" (cdkDropListDropped)="drop($event)">
+                <div class="status-container">
+                    <span class="ToDo">
+                        To Do
+                    </span>
+                    <span class="number">
+                        {{todo.length}}
+                    </span>
+                </div>
+
+                <div class="card-tile" *ngFor="let item of todo" cdkDrag>
+                    <div class="title">
+                        {{item.bugTitle}}
+                    </div>
+                    <!-- <div class="card-tile-title">
+
+                    </div> -->
+                    <div class="kanbandescription">
+                        {{item.Description}}
+                    </div>
+
+                    <div class="tags">
+                        <div class="tag1">
+                            <span class="tag-text">Web</span>
+                        </div>
+                        <div class="tag2">
+                            <span class="tag2-text">Design</span>
+                        </div>
+                    </div>
+
+                    <div class="bottom-content">
+                        <div class="img-name">
+                        <img src="../../../../../../assets/images/avatar.png" class="profile-image" />
+
+                        <div class="fullName">{{item.fullName}}</div>
+                        </div>
+                        <div class="comment-seaction">
+                        </div>
+                        <div class="message">
+                            <img src="../../../../../../assets/images/filters/i-os-icon-medium-without-padding-comment.svg">
+                            <div class="count">
+                                12
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="canvas-container" cdkDropListGroup cdkDropList #InProgessList="cdkDropList" [cdkDropListData]="InProgess"
+                [cdkDropListConnectedTo]="[doneList,todoList,InValidList]" (cdkDropListDropped)="drop($event)">
+                <div class="status-container">
+                    <span class="ToDo">
+                        In Progress
+                    </span>
+                    <span class="number">
+                        {{InProgess.length}}
+                    </span>
+                </div>
+
+                <div class="card-tile" *ngFor="let item of InProgess" cdkDrag>
+                    <div class="title">
+                        {{item.bugTitle}}
+                    </div>
+                    <!-- <div class="card-tile-title">
+                        {{item.bugTitle}}
+                    </div> -->
+                    <div class="kanbandescription">
+                        {{item.Description}}
+                    </div>
+
+                    <div class="tags">
+                        <div class="tag1">
+                            <span class="tag-text">Web</span>
+                        </div>
+                        <div class="tag2">
+                            <span class="tag2-text">Design</span>
+                        </div>
+                    </div>
+
+                    <div class="bottom-content">
+                        <div class="img-name">
+
+                        <img src="../../../../../../assets/images/avatar.png" class="profile-image" />
+                        <div class="fullName">{{item.fullName}}</div>
+                        </div>
+
+                        <div class="comment-seaction">
+                        </div>
+                        <div class="message">
+                            <img src="../../../../../../assets/images/filters/i-os-icon-medium-without-padding-comment.svg">
+                            <div class="count">
+                                12
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="canvas-container" cdkDropListGroup cdkDropList #doneList="cdkDropList" [cdkDropListData]="done"
+                [cdkDropListConnectedTo]="[todoList,InProgessList,InValidList]" (cdkDropListDropped)="drop($event)">
+                <div class="status-container">
+                    <span class="ToDo">
+                        Done
+                    </span>
+                    <span class="number">
+                        {{done.length}}
+                    </span>
+                </div>
+
+                <div class="card-tile" *ngFor="let item of done" cdkDrag>
+                    <div class="title">
+                        {{item.bugTitle}}
+                    </div>
+                    <!-- <div class="card-tile-title">
+                            {{item.bugTitle}}
+                        </div> -->
+                    <div class="kanbandescription">
+                        {{item.Description}}
+                    </div>
+
+                    <div class="tags">
+                        <div class="tag1">
+                            <span class="tag-text">Web</span>
+                        </div>
+                        <div class="tag2">
+                            <span class="tag2-text">Design</span>
+                        </div>
+                    </div>
+
+                    <div class="bottom-content">
+                        <div class="img-name">
+
+                        <img src="../../../../../../assets/images/avatar.png" class="profile-image" />
+                        <div class="fullName">{{item.fullName}}</div>
+                        </div>
+
+                        <div class="comment-seaction">
+                        </div>
+                        <div class="message">
+                            <img src="../../../../../../assets/images/filters/i-os-icon-medium-without-padding-comment.svg">
+                            <div class="count">
+                                12
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="canvas-container" cdkDropListGroup cdkDropList #InValidList="cdkDropList" [cdkDropListData]="InValid"
+                [cdkDropListConnectedTo]="[InProgessList,todoList,doneList]" (cdkDropListDropped)="drop($event)">
+                <div class="status-container">
+                    <span class="ToDo">
+                        Invalid
+                    </span>
+                    <span class="number">
+                        {{InValid.length}}
+                    </span>
+                </div>
+
+                <div class="card-tile" *ngFor="let item of InValid" cdkDrag>
+                    <div class="title">
+                        {{item.bugTitle}}
+                    </div>
+                    <!-- <div class="card-tile-title">
+                        {{item.bugTitle}}
+                    </div> -->
+                    <div class="kanbandescription">
+                        {{item.Description}}
+                    </div>
+
+                    <div class="tags">
+                        <div class="tag1">
+                            <span class="tag-text">Web</span>
+                        </div>
+                        <div class="tag2">
+                            <span class="tag2-text">Design</span>
+                        </div>
+                    </div>
+
+                    <div class="bottom-content">
+                        <div class="img-name">
+
+                        <img src="../../../../../../assets/images/avatar.png" class="profile-image" />
+                        <div class="fullName">{{item.fullName}}</div>
+                        </div>
+
+                        <div class="comment-seaction">
+                        </div>
+                        <div class="message">
+                            <img src="../../../../../../assets/images/filters/i-os-icon-medium-without-padding-comment.svg">
+                            <div class="count">
+                                12
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mb-20"></div>
+
+        <!-- loader -->
+        <div *ngIf="commonService.isLoading" class="spinner-div">
+            <div class="loading-spinner-ripple">
+                <div class="spinner">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-menu" *ngIf="showFilterContainer" [ngClass]="{active: showFilterContainer}">
+        <app-bug-filter [showFilterContainer]="showFilterContainer" (onApplyFilters)="onApplyFilters($event)" [filters]="bugFilters"></app-bug-filter>
+    </div>
+
+
+    <!-- <div class="no-record-found" *ngIf="commonService.isObjectEmpty(bugsList)">
+        <h2>No Data to Display</h2>
+    </div> -->
+
+</div>
+
+
+
+<!-- For now commet used in future  -->
+
+<div class="bottom-floating-bar" *ngIf="selectedListData.length>0">
+
+    <div class="floating-container-content">
+        <div class="left-side">
+            {{selectedListData.length}} Issues Selected
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <filter x="-14.1%" y="-14.1%" width="128.1%" height="128.1%" filterUnits="objectBoundingBox" id="ea6vhdmbbb">
+            <feGaussianBlur stdDeviation="4" in="SourceAlpha" result="shadowBlurInner1"/>
+            <feOffset dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/>
+            <feColorMatrix values="0 0 0 0 0.297119141 0 0 0 0 0 0 0 0 0 1 0 0 0 0.5 0" in="shadowInnerInner1" result="shadowMatrixInner1"/>
+            <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner2"/>
+            <feOffset dy="3" in="shadowBlurInner2" result="shadowOffsetInner2"/>
+            <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"/>
+            <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" in="shadowInnerInner2" result="shadowMatrixInner2"/>
+            <feGaussianBlur stdDeviation="2" in="SourceAlpha" result="shadowBlurInner3"/>
+            <feOffset dy="1" in="shadowBlurInner3" result="shadowOffsetInner3"/>
+            <feComposite in="shadowOffsetInner3" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner3"/>
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" in="shadowInnerInner3" result="shadowMatrixInner3"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixInner1"/>
+                <feMergeNode in="shadowMatrixInner2"/>
+                <feMergeNode in="shadowMatrixInner3"/>
+            </feMerge>
+        </filter>
+        <path d="M24 0H8a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h16a8 8 0 0 0 8-8V8a8 8 0 0 0-8-8zm.24 14.9-3.88 2.8a.8.8 0 0 0-.36.9l1.48 4.54a.8.8 0 0 1-1.22.9l-3.8-2.82a.78.78 0 0 0-.92 0L11.66 24a.8.8 0 0 1-1.22-.9L12 18.6a.8.8 0 0 0-.28-.9l-3.96-2.8a.8.8 0 0 1 .46-1.44h4.8a.78.78 0 0 0 .74-.54l1.48-4.56a.8.8 0 0 1 1.52 0l1.48 4.56a.78.78 0 0 0 .74.54h4.8a.8.8 0 0 1 .46 1.44z" id="8j8l6ng2xa"/>
+    </defs>
+    <g fill-rule="nonzero" fill="none">
+        <use fill-opacity=".9" fill="#4684F8" xlink:href="#8j8l6ng2xa"/>
+        <use fill="#000" filter="url(#ea6vhdmbbb)" xlink:href="#8j8l6ng2xa"/>
+    </g>
+</svg>

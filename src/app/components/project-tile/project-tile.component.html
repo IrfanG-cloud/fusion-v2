@@ -1,0 +1,76 @@
+<div class="project-tile" (click)="openDetails()">
+    <!-- for project menu button icon -->
+    <div class="top-menu-container">
+        <div class="shape-container">
+            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <g fill="none" fill-rule="evenodd">
+                    <path d="M0 0h16v16H0z" />
+                    <path
+                        d="M4 9.333c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 2.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.941.391c.262.261.392.575.392.942s-.13.68-.392.941c-.26.262-.574.392-.941.392zm4 0c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 6.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941A1.284 1.284 0 0 1 8 9.333zm4 0c-.367 0-.68-.13-.942-.392A1.283 1.283 0 0 1 10.667 8c0-.367.13-.68.391-.942.261-.26.575-.391.942-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941a1.284 1.284 0 0 1-.942.392z"
+                        fill="#000" fill-rule="nonzero" />
+                </g>
+            </svg>
+
+        </div>
+    </div>
+
+
+    <!-- for showing project platform type logo  -->
+    <img *ngIf="data?.p_platformType== 'ios'" src="../../../../assets/icons/icons-projects-i-os.svg" class="icon" />
+    <img *ngIf="data?.p_platformType == 'android'" src="../../../../assets/icons/android-icon.png"  class="icon" />
+
+
+    <!-- show project identifier  -->
+    <div class="project-identifier-text">{{ data?.p_appIdIdentifier }}</div>
+
+    <span class="project-name">{{ data?.p_title }} </span>
+    <span class="Device">
+        Sandbox
+    </span>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Old design before refactoring  -->
+
+
+<!-- <div class="project-tile" (click)="openDetails()">
+                         <img
+    class="jira-icon"
+    *ngIf="data?.bugs_outbound_transit_refs[0]['jira'] != false"
+    src="../../../../assets/images/jira-icon.png"
+  /> 
+    <p class="project-env">{{ data?.p_environment | titlecase }}</p> 
+    <img *ngIf="data?.p_platformType== 'ios'" src="../../../../assets/images/iOS.svg" />
+    <img *ngIf="data?.p_platformType == 'android'" src="../../../../assets/images/Android.svg" />
+    <p class="identifier">{{ data?.p_appIdIdentifier }}</p>
+    <h3 class="title">{{ data?.p_title }}</h3>
+    <p class="project-env">{{ data?.p_environment | titlecase }}</p>
+    <p *ngIf="data?.p_platformType == 'android'">
+    Android — {{ data?.p_appIdIdentifier }}
+  </p>
+<p *ngIf="data?.p_platformType == 'ios'">iOS — {{ data?.p_appIdentifier }}</p>
+</div> -->

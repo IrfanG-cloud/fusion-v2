@@ -1,0 +1,41 @@
+<!-- Centered layout as in v2 designs -->
+
+<div class="layout-centered">
+  <div class="container">
+    <div class="content-container">
+      <div class="logo-container">
+        <div class="logo-image-container">
+          <img
+            src="./../../../../assets/images/logo.png"
+            alt="logo"
+            class="logo-image"
+          />
+        </div>
+      </div>
+      <div class="detail-seaction">
+        <h3 class="detail-title">Check your email</h3>
+        <p class="detail-description">
+          We have sent a verification link on
+          <b>{{ email }}</b> please click the link to confirm your email address
+        </p>
+
+        <div class="btn-resend-email">Resend Email</div>
+      </div>
+      <div
+        (click)="goToGmail()"
+        class="btn-primary"
+        style="--mt: 2rem"
+      >
+        Open Gmail
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Side panel layout same as in v1 -->
+
+<!-- <div class="layout-side">
+      <div class="left-side"></div>
+  
+      <div class="right-side"></div>
+  </div>  -->

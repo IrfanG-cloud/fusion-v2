@@ -1,0 +1,388 @@
+@import '../../../../../../assets/styling/principles/variables';
+
+.container-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+
+    .heading {
+
+        margin: 0 69px 5px 0;
+        font-family: 'HelveticaNeue-Medium';
+        font-size: 20px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #000;
+    }
+
+    .sub-heading {
+        width: 218px;
+        height: 14px;
+        margin: 5px 0 0;
+        font-family: 'HelveticaNeue';
+        font-size: 12px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #929292;
+    }
+
+    .Rectangle-container {
+        background-color: #f7f9fb;
+        width: 100%;
+        height: auto;
+        margin: 24px 0 24px 0px;
+        padding: 20px 0 24px;
+        border-radius: 8px;
+        box-shadow: 0 6px 20px 0 rgba(238, 238, 238, 0.5);
+        border: solid 1px #ebebeb;
+
+        .Project-Details {
+            height: 19px;
+            margin: 0 639px 20px 24px;
+            font-family: 'HelveticaNeue-Medium';
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #000;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            margin: 20px 0 24px;
+            background-color: #ebebeb;
+        }
+
+        .Project-Name {
+            height: 16px;
+            margin: 0 226px 8px 0;
+            padding: 0px 0px 0px 24px;
+            font-family: 'HelveticaNeue';
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #9f9f9f;
+        }
+
+        .project-name-input {
+            outline: none;
+            border: 0px;
+            width: 352px;
+            height: 18px;
+            margin: 0 0 3px;
+            font-family: "HelveticaNeue-Medium";
+            font-size: 16px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: $black;
+
+        }
+
+        .Project-Env {
+            height: 16px;
+            margin: 24px 226px 8px 0;
+            padding: 0px 0px 0px 24px;
+            font-family: 'HelveticaNeue';
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #9f9f9f;
+        }
+
+        .note-container {
+            width: 805px;
+            height: 67px;
+            margin: 16px 20px 0 9px;
+            /* padding: 16px 209px 16px 16px; */
+            border-radius: 8px;
+            background-color: #eef2f8;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 18px;
+
+            .Note {
+                font-family: 'HelveticaNeue-Bold';
+                font-size: 14px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: #5c5f62;
+            }
+
+            .Neque-porro-quisquam {
+                margin: 0px 0px 0px 0px;
+                font-family: 'HelveticaNeue';
+                font-size: 14px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: #5c5f62;
+            }
+        }
+
+        .save-btn {
+            width: 126px;
+            height: 32px;
+            margin: 20px 687px 0 24px;
+            border-radius: 16px;
+            background-color: #4684f8;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            .Save-Changes {
+                width: 72px;
+                height: 12px;
+                font-family: 'HelveticaNeue';
+                font-size: 11px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: #fff;
+            }
+        }
+
+        .delete-btn {
+            width: 126px;
+            height: 32px;
+            margin: 20px 687px 0 24px;
+            border-radius: 16px;
+            background-color: #ff5e5e;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            .Save-Changes {
+                width: 72px;
+                height: 12px;
+                font-family: 'HelveticaNeue';
+                font-size: 11px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: #fff;
+            }
+        }
+    }
+}
+
+
+
+.Rectangle-Project {
+    width: 400px;
+    height: 115px;
+    margin: 24px 0 16px 24px;
+    border-radius: 8px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &.active {
+        border: 1px solid $primary-color;
+    }
+
+    .left {
+        width: 70%;
+        height: 86px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // margin-left: 3rem;
+
+        .title-container {
+            display: flex;
+            flex-direction: row;
+            margin-left: 10px;
+        }
+
+        .text {
+            width: 100px;
+            // font-family: HelveticaNeue;
+            font-size: $font-size-18;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #373737;
+        }
+
+        .text-description {
+            width: 200px;
+            height: 14px;
+            margin: 8px 0 0;
+            font-family: "HelveticaNeue";
+            font-size: 12px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: $grey-080;
+        }
+
+    }
+
+    .right {
+        width: 122px;
+        height: 86px;
+        margin: 13px 0px 16px 13px;
+        padding: 22px 40px;
+        border-radius: 12px;
+        background-color: #f7f9fb;
+
+        &.active {
+            background-color: #eaf4ea;
+        }
+    }
+}
+
+.Tile {
+    width: 86px;
+    height: 21px;
+    margin: 0 26px 7px 7px;
+    padding: 0px 10px 3px;
+    border-radius: 10.5px;
+    background-color: #6f98eb;
+}
+
+.tile-data {
+    width: 66px;
+    height: 14px;
+    font-family: "HelveticaNeue";
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #f7f7f7;
+}
+
+.Rectangle-input {
+    margin-left: 24px;
+    width: 400px;
+    height: 46px;
+    padding: 13px 32px 11px 16px;
+    border-radius: 8px;
+    border: solid 1px #e6e6e6;
+    background-color: white;
+}
+
+
+
+.rating {
+    // width: 24px;
+    // height: 24px;
+    // margin: 0 5px 11px 0;
+    object-fit: contain;
+    box-shadow: -1 16px 18px 0 #d3e1fd;
+
+}
+
+.rating-block {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.text-des {
+    display: flex;
+    flex-direction: column;
+}
+
+.Attention {
+    width: 330px;
+    height: 17px;
+    font-family: "HelveticaNeue-Medium";
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #5c5f62;
+}
+
+.project-label {
+    width: 352px;
+    height: 18px;
+    margin: 0 0 3px;
+    font-family: "HelveticaNeue-Medium";
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $black;
+}
+
+.Icon-Rectangle {
+    // width: 8.7rem;
+    // height: 8.7rem;
+    // margin: 0 2.4rem 0 0;
+    // // padding: 1.9rem 1.8rem 1.9rem 1.8rem;
+    // border-radius: 24.9px;
+    // // background-color: #4684f8;
+    // display: grid;
+    // place-items: center;
+    // overflow: hidden;
+    // object-fit: contain;
+
+    .favicon {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .uploaded-icon {
+        width: 42px;
+        height: 42px;
+        object-fit: cover;
+        border-radius: 40px;
+    }
+}
+
+.file-input {
+    opacity: 0;
+    // position: absolute;
+    // top: 266px;
+    width: 100%;
+    height: 44px;
+    cursor: pointer;
+}

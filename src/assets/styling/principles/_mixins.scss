@@ -1,0 +1,308 @@
+//-----MIXINS-----
+
+// @import '../principles/palette';
+// @import './variables';
+
+
+// Explorer
+
+@mixin flexCenter {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexStart {
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+@mixin flexBetween {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin div-12{
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+@mixin div-14{
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+@mixin div-16{
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+@mixin div-24{
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+@mixin navIconChange{
+    .hover-img{
+        display:none;
+    }
+    &:hover, &.active{
+        span{
+            color:$white;
+        }
+        .default-img{
+            display:none;
+        }
+        .hover-img{
+            display:block;
+        }
+    }
+}
+
+@mixin input {
+    display:block;
+    border-radius: 0.4rem;
+    font-size: 1.4rem;
+    font-family: $font-family-regular;
+    outline: none;
+}
+
+@mixin input-field--white {
+    @include input;
+    border: 0.1rem solid $grey-da;
+    text-align: left;
+    background: $white;
+    color: $black;
+}
+
+@mixin button{
+    outline:none;
+    border: none;
+    background-color: white;
+}
+
+@mixin list {
+    list-style-type: none;
+    li{
+        list-style-type: none;
+        line-height: 1.14rem;
+        padding: 0;
+        text-align: left;
+    }
+}
+
+@mixin form-header {
+    .form-header{
+        margin-bottom: 3.2rem;
+        font-family: $font-family-regular;
+
+        h2{
+            font-family: $font-family-regular;
+            font-size: 2.6rem;
+            color: $grey-36;
+            //line-height: 1.23;
+            margin-bottom: 1.2rem;
+            strong{
+                font-family: $font-family-bold;
+            }
+        } //h2
+        p {
+            font-family:  $font-family-regular;
+            font-size: 1.4rem;
+            //line-height: 1.5rem;
+            color: $grey-76;
+        } //p
+    } //form-header
+}
+
+@mixin form-footer {
+    .form-footer{
+        margin-top: 2.4rem;
+        font-size: 1.4rem;
+        //line-height: 1.14;
+        color: $grey-76;
+        p {
+            margin-top: 2.4rem;
+        }
+        .margin-right{
+            margin-right: 0.2rem;
+            a {
+                font-size: 1.4rem;
+                color: $green-88;
+            }
+        }//margin-right
+
+    } //form-footer
+}
+
+@mixin separatorCircle{
+    content:'';
+    position: absolute;
+    border-radius: 50%;
+    width: 0.4rem;
+    height: 0.4rem;
+    background-color: $grey-95;
+}
+
+@mixin selectArrow{
+    &:before{
+        content:"";
+        position: absolute;
+        width: 3rem;
+        height: 2rem;
+        background-color: $white;
+        pointer-events: none;
+    }
+    &:after{
+        content:"";
+        position: absolute;
+        width: 0.8rem;
+        height: 0.5rem;
+        background: url('../../../assets/images/Icon_Down_8.svg') center no-repeat;
+        background-size: cover;
+    }
+}
+@mixin dropdownItem{
+    .dropdown-item {
+        list-style-type: none;
+        width: 100%;
+        font-size: 1.4rem;
+        padding: 0.8rem 1.6rem ;
+        color:$grey-36;
+        }
+        p {
+            display: inline-block;
+            color:$grey-36;
+        }
+        li:hover{
+            background-color:$grey-f8;
+        }
+        img{
+            margin-right: 1.2rem;
+        }
+        a{
+            text-decoration: none;
+        }
+}
+
+@mixin dropdownBtn{
+        @include button;
+        font-size: 1.4rem;
+        margin-left: 2.5rem;
+        position:relative;
+        img{
+            margin-left: 0.6rem;
+        }
+}
+
+@mixin selectedDropdownItem{
+    img{
+        display: none;
+    }
+    &.active{
+        p{
+            color:$green-a7;
+        }
+        img{
+            display: block;
+        }
+    }
+}
+
+@mixin primaryBodyMed-28 {
+    font-family: $font-family-medium;
+    font-size: 2.8rem;
+    color: $grey-36;
+}
+@mixin primaryBodyMed-16 {
+    font-family: $font-family-medium;
+    font-size: 1.6rem;
+    color: $grey-36;
+}
+@mixin primaryBodyMed-14 {
+    font-family: $font-family-medium;
+    font-size: 1.4rem;
+    color: $grey-36;
+}
+@mixin whiteBodyMed-14 {
+    font-family: $font-family-medium;
+    font-size: 1.4rem;
+    color: $white;
+}
+@mixin whiteBodyReg-14 {
+    font-family: $font-family-medium;
+    font-size: 1.4rem;
+    color: $white;
+}
+@mixin primaryBodyReg-28 {
+    font-family: $font-family-regular;
+    font-size: 2.8rem;
+    color: $grey-36;
+}
+@mixin primaryBodyReg-14 {
+    font-family: $font-family-regular;
+    font-size: 1.2rem;
+    color: $grey-36;
+}
+
+
+@mixin greyBodyReg-14 {
+    font-family: $font-family-regular;
+    font-size: 1.4rem;
+    color: $grey-70;
+}
+@mixin greyBodyMed-14 {
+    font-family: $font-family-medium;
+    font-size: 1.4rem;
+    color: $grey-70;
+}
+
+@mixin greenBodyReg-14 {
+    font-family: $font-family-regular;
+    font-size: 1.4rem;
+    color: $green-88;
+}
+@mixin greenBodyReg-12 {
+    font-family: $font-family-regular;
+    font-size: 1.2rem;
+    color: $green-a7;
+}
+
+@mixin greySmallMed-12 {
+    font-family: $font-family-medium;
+    font-size: 1.2rem;
+    color: $grey-80;
+}
+
+@mixin greySmallReg-12 {
+    font-family: $font-family-regular;
+    font-size: 1.2rem;
+    color: $grey-80;
+}
+
+@mixin primarySmallReg-12 {
+    font-family: $font-family-regular;
+    font-size: 1.2rem;
+    color: $grey-36;
+}
+
+@mixin blackBodyMed-14 {
+    font-family: $font-family-medium;
+    font-size: 1.4rem;
+    color: $black;
+}
+
+@mixin blackSmallMed-12 {
+    font-family: $font-family-medium;
+    font-size: 1.2rem;
+    color: $black;
+}
+
+@mixin blackSmallReg-12 {
+    font-family: $font-family-regular;
+    font-size: 1.2rem;
+    color: $black;
+}

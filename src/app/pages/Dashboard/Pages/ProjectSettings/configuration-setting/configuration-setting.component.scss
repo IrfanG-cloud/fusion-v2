@@ -1,0 +1,159 @@
+@import '../../../../../../assets/styling/principles/variables';
+
+.container-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+
+    .heading {
+        width: 97px;
+        height: 18px;
+        margin: 0 121px 8px 0;
+        font-family: "HelveticaNeue-Medium";
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $black;
+    }
+
+    .sub-heading {
+        width: 218px;
+        height: 14px;
+        margin: 8px 0 0;
+        font-family: "HelveticaNeue";
+        font-size: 12px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #929292;
+    }
+
+    .Rectangle-container {
+        width: 100%;
+        height: auto;
+        margin: 24px 0 24px 0px;
+        padding: 20px 24px 45px;
+        border-radius: 8px;
+        border: solid 1px #ebebeb;
+        background-color: #f7f9fb;
+
+        .Project-Details {
+            width: 122px;
+            height: 19px;
+            margin: 0 683px 32px 0;
+            font-family: "HelveticaNeue-Medium";
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: $black;
+        }
+    }
+}
+
+
+.filters-bar {
+    width: fit-content;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-top: 3rem;
+    padding-left: 0.4rem;
+    border-radius: 40px;
+    background-color: #ececec;
+    cursor: pointer;
+
+    .filter-tile {
+        border: solid 1px #e3e3e3;
+        background-color: --(color);
+        padding: 0.8rem 1rem;
+        border-radius: 3rem;
+        margin-right: 0.7rem;
+
+        &:hover {
+            background-color: white;
+        }
+
+        &.active {
+            background-color: white;
+        }
+    }
+}
+
+.btntoggle {
+    width: 89px;
+    height: 15px;
+    font-family: "HelveticaNeue";
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: $black;
+}
+
+.content-container {
+    margin-top: 3rem;
+
+    .Lorem-ipsum-dolor {
+        // width: 315px;
+        // height: 14px;
+        // margin: 0 490px 24px 0;
+        font-family: "HelveticaNeue";
+        font-size: 12px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $black;
+    }
+
+    .Rectangle-code {
+        width: auto;
+        height: 82px;
+        margin: 24px 0 48px;
+        padding: 20px;
+        border-radius: 12px;
+        background-color: $grey-020;
+
+        .Pod-Fusioninspect {
+            width: 644px;
+            height: 14px;
+            margin: 0 18px 28px 0;
+            font-family: "HelveticaNeue";
+            font-size: 12px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: $grey-100;
+        }
+    }
+}
+
+.Lorem-ipsum-dolor-si1 {
+    width: 687px;
+    height: 28px;
+    margin: 0 0 0 4px;
+    font-family: "HelveticaNeue";
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $black;
+}

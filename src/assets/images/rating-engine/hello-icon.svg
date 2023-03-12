@@ -1,0 +1,28 @@
+<svg width="124" height="124" viewBox="0 0 124 124" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <filter x="-3.6%" y="-3.6%" width="107.3%" height="107.3%" filterUnits="objectBoundingBox" id="bmokk6r8ub">
+            <feGaussianBlur stdDeviation="4" in="SourceAlpha" result="shadowBlurInner1"/>
+            <feOffset dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/>
+            <feColorMatrix values="0 0 0 0 0.297119141 0 0 0 0 0 0 0 0 0 1 0 0 0 0.5 0" in="shadowInnerInner1" result="shadowMatrixInner1"/>
+            <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner2"/>
+            <feOffset dy="3" in="shadowBlurInner2" result="shadowOffsetInner2"/>
+            <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"/>
+            <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" in="shadowInnerInner2" result="shadowMatrixInner2"/>
+            <feGaussianBlur stdDeviation="2" in="SourceAlpha" result="shadowBlurInner3"/>
+            <feOffset dy="1" in="shadowBlurInner3" result="shadowOffsetInner3"/>
+            <feComposite in="shadowOffsetInner3" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner3"/>
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" in="shadowInnerInner3" result="shadowMatrixInner3"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixInner1"/>
+                <feMergeNode in="shadowMatrixInner2"/>
+                <feMergeNode in="shadowMatrixInner3"/>
+            </feMerge>
+        </filter>
+        <path d="M62.01 0C96.246 0 124 27.754 124 61.99c0 34.237-27.754 61.99-61.99 61.99H17.377C7.805 123.948.053 116.196.019 106.624V65.462a14.382 14.382 0 0 1 0-1.488V61.99C.02 27.754 27.773 0 62.01 0zm0 12.398c-27.39 0-49.593 22.203-49.593 49.592a7.5 7.5 0 0 0 0 1.24v43.393a4.96 4.96 0 0 0 4.96 4.96H62.01c27.389 0 49.592-22.204 49.592-49.593 0-27.389-22.203-49.592-49.592-49.592zm-.02 56.535a6.199 6.199 0 0 1 0 12.398H38.992a6.199 6.199 0 1 1 0-12.398H61.99zM85.237 42.65a6.199 6.199 0 0 1 0 12.398H38.992a6.199 6.199 0 1 1 0-12.398h46.245z" id="u7rw573kxa"/>
+    </defs>
+    <g fill-rule="nonzero" fill="none">
+        <use fill-opacity=".9" fill="#4684F8" xlink:href="#u7rw573kxa"/>
+        <use fill="#000" filter="url(#bmokk6r8ub)" xlink:href="#u7rw573kxa"/>
+    </g>
+</svg>

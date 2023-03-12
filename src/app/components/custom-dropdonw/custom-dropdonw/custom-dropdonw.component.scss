@@ -1,0 +1,89 @@
+@import '../../../../assets/styling/principles/variables';
+
+$accent-color: cornflowerblue;
+$text-color: #444;
+$width: 130px;
+$font-size: 0.85em;
+$background-color: white;
+$border-color: #ddd;
+
+.dropdown-collection {
+    position: relative;
+    // margin-right: 8px;
+}
+
+.dropdown-button {
+    border: none;
+    position: relative;
+    height: 3rem;
+    padding: 5px;
+    justify-content: space-between;
+    background-color: #efefef;
+    display: flex;
+
+    width: 10rem;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    align-items: center;
+    // background-image: url("/assets/svg/chevron.svg");
+    // background-size: 10px;
+    // background-position: right 16px bottom 45%;
+    // background-repeat: no-repeat;
+
+}
+.dropdown-value {
+    font-family: 'HelveticaNeue-Medium';
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: $black;
+}
+
+.dropdown-list {
+    display: none;
+    background: $background-color;
+    border-radius: .4rem;
+    list-style: none;
+    // border: 1px solid $accent-color;
+    box-shadow: 0px 0px 15px -1px fade_out($accent-color, 0.6);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    z-index: 10;
+    right: 0;
+    margin: 0;
+    transform: translateY(100%);
+    overflow: hidden;
+    width: 12rem;
+
+
+
+    li {
+        padding: 4px 16px;
+        cursor: pointer;
+
+
+        font-family: 'HelveticaNeue';
+        font-size: 12px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $grey-100;
+
+        &.selected {
+            color: $primary-color
+        }
+    }
+
+    &.dropdown-open {
+        display: block;
+    }
+}

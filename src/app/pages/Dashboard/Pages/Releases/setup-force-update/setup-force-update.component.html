@@ -1,0 +1,169 @@
+<div class="content-container">
+
+    <div class="top-container">
+
+        <div class="screen-flex" *ngIf="currentIndex == 1">
+            <div class="setup-flex">
+                <div class="title-container">
+                    <img class="tick-icon" src="../../../../../../assets/icons/icons-s-idebar-quality-management-idle-tick.svg">
+                    <div class="header">Set Up Force update</div>
+                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eros nibh, tincidunt ac nibh a, condimentum.</div>
+
+                    <div class="setup-screen">
+                        <div class="title-type">
+                            Update Type
+                        </div>
+                        <div class="flex-row">
+                            <div class="optional-container">
+                                <div class="type-optional" (click)="onSelectType('Optional')" [ngClass]="{active:type=='Optional'}">
+                                    <img *ngIf="'Optional'!=type" src="../../../../../../assets/icons/eos-icons-abstract-instance-blue.svg">
+                                    <img *ngIf="'Optional'==type" src="../../../../../../assets/icons/eos-icons-abstract-instance-light.svg">
+                                    <div [ngClass]="{active:type=='Optional'}" class="title">Optional</div>
+                                    <div [ngClass]="{active:type=='Optional'}" class="description-optional">Neque porro quisquam sum</div>
+                                </div>
+                            </div>
+                            <div class="optional-container">
+                                <div class="type-mandatry" (click)="onSelectType('Mondatory')" [ngClass]="{active:'Mondatory'==type}">
+                                    <img *ngIf="'Mondatory'!=type" src="../../../../../../assets/icons/bi-shield-fill-exclamation-orange.svg">
+                                    <img *ngIf="'Mondatory'==type" src="../../../../../../assets/icons/bi-shield-fill-exclamation-light.svg">
+                                    <div class="title" [ngClass]="{active:'Mondatory'==type}">Mondatory</div>
+                                    <div class="description-optional" [ngClass]="{active:'Mondatory'==type}">Neque porro quisquam sum</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="version-container">
+                        <div class="title-version">
+                            App Version
+                        </div>
+
+                        <div class="rectangle-dropdown">
+                            <mat-select placeholder="Select App Version" value="Select App Versions" (selectionChange)="submit($event)" let i="index">
+                                <mat-option *ngFor="let version of versions ; let indexOfElement= index" [value]="version">
+                                    {{version?.name}}</mat-option>
+                            </mat-select>
+
+                        </div>
+                        <div class="selected-rectangle-container" *ngFor="let version of selectedVersions">
+                            {{version?.name}}
+
+                            <img src="../../../../../../assets/icons/remove.png" class="remove-icon" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-side">
+                    <img class="screen-setupForce" src="../../../../../../assets/icons/screen.png">
+                </div>
+            </div>
+
+            <div class="nextScreen">
+                <div class="bottom-step-indicator">
+                    <div class="indicator">
+                        <div class="Oval-Copy" *ngFor="let i of [1, 2]" [ngClass]="{ active: currentIndex == i }"></div>
+                    </div>
+                    <div class="title">Update Type</div>
+                    <div class="btn-next" (click)="continueToNext(2)">Next</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div *ngIf="currentIndex == 2">
+            <div class="title-container">
+                <img class="tick-icon" src="../../../../../../assets/icons/icons-s-idebar-quality-management-idle-tick.svg">
+                <div class="header">Message Template</div>
+                <div class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eros nibh, tincidunt ac nibh a, condimentum.</div>
+
+                <div class="filters-bar">
+                    <div class="filter-tile" (click)="onSelectTab(filter.id, filter.name)" *ngFor="let filter of filtersOptions" [ngClass]="{ active: tab == filter?.id }">
+                        {{ filter.name }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="setup-screen">
+                <div class="custom" *ngIf="tab == 21">
+
+                    <div class="left-side">
+                        <div class="Project-Name">
+                            <div class="title">
+                                Update Title
+                            </div>
+
+                            <div class="Rectangle-input1">
+                                <input class="project-name-input" type="text" placeholder="Enter Title Here">
+                            </div>
+                        </div>
+
+                        <div class="Add-message">
+                            Message
+                        </div>
+                        <div class="message">
+                            <textarea class="message-area" placeholder="Enter Message here"></textarea>
+                        </div>
+
+                        <div class="flex-row1">
+                            <div class="Project-Name">
+                                <div class="title">
+                                    Positive CTA
+                                </div>
+                                <div class="Rectangle-input">
+                                    <input class="project-name-input" type="text" placeholder="Enter Text Here">
+                                </div>
+                            </div>
+
+                            <div class="Project-Name">
+                                <div class="title">
+                                    Negative CTA
+                                </div>
+                                <div class="Rectangle-input">
+                                    <input class="project-name-input" type="text" placeholder="Enter Text Here">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-side">
+                        <img class="screen" src="../../../../../../assets/icons/screen.png">
+                    </div>
+                </div>
+
+                <div class="template" *ngIf="tab==22">
+                    <div class="box-container">
+                        <div class="box-row">
+                            <div class="box" *ngFor="let i of templates" (click)="selecttab(i)" [ngClass]="{ active: selectedSetup.id == i.id }">
+                                <div class="check-flex">
+                                    <img src="../../../../../../assets/icons/i-os-icon-small-beta-setup.svg">
+                                    <mat-checkbox class="right-tile" [checked]="i.isSelected"></mat-checkbox>
+                                </div>
+                                <div class="title">
+                                    {{i.title}}
+                                </div>
+                                <div class="description">
+                                    {{i.description}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-side">
+                            <img src="../../../.../../../../../assets/icons/screen.png">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nextScreen">
+                    <div class="bottom-step-indicator">
+                        <div class="indicator">
+                            <div class="Oval-Copy" *ngFor="let i of [1, 2]" [ngClass]="{ active: currentIndex == i }"></div>
+                        </div>
+                        <div class="title">Update Type</div>
+                        <div class="btn-next" (click)="continueToNext(3)">Next</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

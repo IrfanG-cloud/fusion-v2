@@ -1,0 +1,98 @@
+<!-- Centered layout as in v2 designs -->
+<div class="layout-centered">
+
+    <div>
+        <div class="logo-container">
+            <div class="logo-image-container">
+                <img src="../../../../assets/icons/logo-fusion.svg" alt="logo" class="logo-image" />
+            </div>
+        </div>
+        <div class="container">
+            <div class="content-container">
+                <div class="signIn">
+                    SignIn
+                </div>
+                <div class="signIndescription">
+                    Welcome Back, Sign In to get started
+                </div>
+
+                <form class="full-width">
+                    <div class="server-error-meesage" *ngIf="commonService.showServerError">
+                        <svg class="icon" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M8 0a8 8 0 1 0 8 8 8.009 8.009 0 0 0-8-8zm0 13a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm1-8.16L8.736 9.4a.548.548 0 0 1-.216.424A.828.828 0 0 1 8 10a.828.828 0 0 1-.52-.175.549.549 0 0 1-.215-.424L7 4.841a.679.679 0 0 1 .065-.32.814.814 0 0 1 .214-.273c.094-.078.205-.14.329-.183a1.2 1.2 0 0 1 .78 0c.124.042.236.105.329.183a.814.814 0 0 1 .214.273c.048.102.07.21.066.32L9 4.839z"
+                                fill="#FF5E5E" fill-rule="nonzero" />
+                        </svg>
+
+                        <span class="text">Incorrect email or password</span>
+                    </div>
+                    <mat-form-field *ngIf="!emailError" class="input-feild email-validate" appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input class="text-input-feild" matInput placeholder="email@gmail.com" id="email" name="email" type="email" [(ngModel)]="email" email="true" />
+                    </mat-form-field>
+                    <mat-form-field *ngIf="emailError" class="input-feild-isRequired email-validate" appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input class="text-input-feild" matInput placeholder="email@gmail.com" id="email" name="email" type="email" [(ngModel)]="email" email="true" />
+                    </mat-form-field>
+                    <div class="error-message" *ngIf="emailError">
+                        Email is required
+                    </div>
+
+                    <mat-form-field class="input-feild" appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input class="text-input-feild" matInput type="password" placeholder="*********" name="password" id="password" [(ngModel)]="password" />
+                    </mat-form-field>
+                    <div class="error-message" *ngIf="passwordError">
+                        Password field is required
+                    </div>
+
+                    <div class="btn-primary" style="margin-top: 24px;" (click)="login()">Sign In</div>
+                    <div class="error-message" *ngIf="error">
+                        Invalid user name and passwrod. Please try again
+                    </div>
+                </form>
+
+                <div class="Divider"></div>
+                <div class="social-logins-container">
+                    <img class="social-logins-button" src="./../../../../assets/icons/apple.png" />
+                    <img (click)="signInWithGoogle()" class="social-logins-button" src="./../../../../assets/icons/google.png" />
+                    <img (click)="signWithGithub()" class="social-logins-button" src="./../../../../assets/icons/github.png" />
+                </div>
+
+                <div class="forgot-password-container">
+                    <div class="discription-text">Forgot password?</div>
+                    <div class="action-text">Reset</div>
+                </div>
+
+                <div class="signup-text-container">
+                    <div class="discription-text">New to Fusion?</div>
+                    <div [routerLink]="['/account/signup']" class="action-text">
+                        Sign Up
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyRight">
+        © Fusion 2023
+    </div>
+</div>
+
+<!-- loader -->
+<div *ngIf="commonService.isLoading" class="spinner-div">
+    <div class="loading-spinner-ripple">
+        <div class="spinner">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+
+<!-- Side panel layout same as in v1 -->
+
+<!-- <div class="layout-side">
+    <div class="left-side"></div>
+
+    <div class="right-side"></div>
+</div> -->

@@ -1,0 +1,101 @@
+<div class="header-bar-container" [ngClass]="{ active: commonService.showSideBar }">
+
+    <div class="Rectangle" (click)="toggleShareContainer($event)">
+        <img src="../../../assets/icons/i-os-icon-small-users.svg" class="icon" />
+        <div class="label">
+            Members
+        </div>
+    </div>
+
+
+
+    <div (click)="toggleShowNotificationContainer($event)">
+        <img src="../../../assets/icons/bell.svg" class="bell-icon" />
+    </div>
+
+    <div class="notification-container" [ngClass]="{active:showNotificationContainer}">
+
+        <div *ngIf="showNotificationContainer">
+
+            <div class="flex-row-container">
+                <div class="Notifications">
+                    Notifications
+                </div>
+                <div class="view-all-btn" *ngIf="userNotifications.length>0" [routerLink]="'/project/notifications'">
+                    View All
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="empty-container" *ngIf="userNotifications.length==0">
+                <img src="../../../assets/icons/notification_icon_with_background.svg" class="icon" />
+
+                <div class="no-notification">
+                    No Notification Right Now
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet urna quam. Donec sodales lectus erat.
+                </p>
+            </div>
+
+            <div class="list-container" *ngIf="userNotifications.length>0">
+                <div class="list-tile" *ngFor="let notification of userNotifications" [ngClass]="{active:notification.isRead==0}">
+                    <img src="../../../assets/images/avatar.png" class="Mask" />
+                    <div>
+                        <p><b>{{notification.authorName}}</b> {{notification.triggeringSource}} on {{notification.sourceType}} you are following</p>
+                        <p>{{notification.activityTime | date: 'h:mm: a'}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="share-container" [ngClass]="{active:showShareContainer}">
+        <div class="Content-Container" *ngIf="showShareContainer">
+            <div class="title">Share Project</div>
+            <div class="project-name">Polar bear</div>
+
+            <div class="flex-row">
+                <div class="container-80">
+
+                    <input type="text" class="input" [(ngModel)]="email" placeholder="Enter Email" (click)="$event.stopPropagation()" />
+
+                    <app-custom-dropdonw (click)="$event.stopPropagation()" [title]="newMember.role" [options]="options"
+                        (currentValueChange)="dropdownValueChanged($event)"></app-custom-dropdonw>
+
+
+                </div>
+
+                <div class="invite-btn" (click)="onSendInvite()">
+                    Invite
+                </div>
+            </div>
+
+            <div class="divider">
+            </div>
+
+            <div class="container" *ngFor="let member of projectMembers">
+
+                <div class="member-container">
+
+                    <img [src]="member.avatar" class="Mask" *ngIf="member.avatar!=null" />
+                    <img src="../../../assets/images/avatar.png" class="Mask" *ngIf="member.avatar==null" />
+
+                    <div class="info-container">
+                        <div class="info-name">{{member.fullName}}</div>
+                        <div class="info-project">{{member.email}}</div>
+                    </div>
+                </div>
+
+                <app-custom-dropdonw (click)="$event.stopPropagation()" [title]="member.role" [options]="options"
+                    (currentValueChange)="dropdownValueChangedUpdate($event,member)"></app-custom-dropdonw>
+
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</div>

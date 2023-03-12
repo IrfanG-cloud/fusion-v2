@@ -1,0 +1,350 @@
+@import "./widgets/ui_elements";
+@import "./principles/variables";
+
+.main-screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    // background-color: white;
+
+    .main-screen-content {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+
+        .project-side-bar {
+            width: 184px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: #16181f;
+            // border-right: 0.2rem solid #ececec;
+            position: relative;
+
+            .project-name-container {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: row;
+                padding: 1rem;
+                margin-bottom: 20px;
+                cursor: pointer;
+
+                .project-name-icon-container {
+                    width: fit-content;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    margin-right: 1rem;
+
+                    .icon {
+                        width: 28px;
+                        height: 28px;
+                        background-color: $workspace-color;
+                        border-radius: 15px;
+                        display: grid;
+                        place-items: center;
+
+                        font-family: $fusion-family;
+                        font-size: 10px;
+                        font-weight: 600;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: normal;
+                        letter-spacing: normal;
+                        text-align: center;
+                        color: #dbdbdb;
+                    }
+
+                    .name {
+                        display: flex;
+                        height: 60%;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+                        width: 70%;
+                        overflow: hidden;
+                        margin-left: .5rem;
+
+                        .project-name {
+                            font-size: $font-size-14;
+                            font-weight: bold;
+                            color: #dbdbdb;
+                            cursor: pointer;
+                            width: 8rem;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+
+                            // height: 24px;
+
+                        }
+
+
+                        .project-detail-env {
+                            // width: 74px;
+                            font-family: $fusion-family;
+                            font-size: 9px;
+                            font-weight: normal;
+                            font-stretch: normal;
+                            font-style: normal;
+                            line-height: normal;
+                            letter-spacing: normal;
+                            // text-align: center;
+                            color: #f8f8f8;
+                        }
+
+                        .env {
+                            width: 74px;
+                            font-family: $fusion-family;
+                            font-size: 9px;
+                            font-weight: normal;
+                            font-stretch: normal;
+                            font-style: normal;
+                            line-height: normal;
+                            letter-spacing: normal;
+                            // text-align: center;
+                            color: #dbdbdb;
+                        }
+
+                    }
+                }
+                
+
+            }
+
+            .projects-dropdown-container::-webkit-scrollbar {
+                display: none !important;
+            }
+
+            .projects-dropdown-container {
+                position: fixed;
+                z-index: 1;
+                width: 338px;
+                height: 324px;
+                top: 50px;
+                padding: 10px;
+                border-radius: 12px;
+                box-shadow: 0 2px 30px 0 rgba(198, 198, 198, 0.5);
+                border: solid 1px #f0f0f0;
+                background-color: $white;
+                overflow: scroll;
+
+                .project {
+                    margin: 0 22px 9px 0px;
+                    font-family: "HelveticaNeue";
+                    font-size: 10px;
+                    font-weight: 500;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: 1px;
+                    color: #737373;
+                }
+
+                .project-tile {
+                    width: 318px;
+                    height: 76px;
+                    padding: 6px 17px 3px 9px;
+                    border-radius: 12px;
+                    background-color: white;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    cursor: pointer;
+
+                    &.active {
+                        background-color: #f7f9fb;
+                    }
+
+                    .icon {
+                        width: 56px;
+                        height: 56px;
+                        background-color: white;
+                        padding: 7px;
+                        border-radius: 8px;
+                        border: solid 1px #f0f0f0;
+
+                        .project-icon {
+                            width: 42px;
+                            height: 42px;
+                            object-fit: contain;
+
+                        }
+                    }
+
+                    .name {
+                        height: 30px;
+                        margin-left: 10px;
+                        width: 80%;
+
+                        .project-name {
+                            width: 100%;
+                            height: 20px;
+                            overflow: hidden;
+                            font-size: 14px;
+                            font-weight: 600;
+                        }
+
+                        .project-detail-env {
+                            font-size: 10px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+
+            .flex-col {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: space-between;
+                margin-bottom: 2vh;
+            }
+
+            .project-side-bar-inner {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+
+                .project-setting-seaction {
+                    width: 100%;
+                }
+
+                .seaction-tile {
+                    padding: 24px 0px 10px 10px;
+                    margin-left: 19px;
+                    width: 100%;
+                    font-family: 'HelveticaNeue';
+                    font-size: 10px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: 1px;
+                    color: #66676c;
+                }
+
+                .project-seaction-tile {
+                    width: 100%;
+                }
+
+                .project-side-bar-item {
+                    display: flex;
+                    align-items: center;
+                    // width: 100%;
+                    border-radius: 0.8rem;
+                    padding: 10px 0px 10px 10px;
+                    margin-left: 10px;
+                    margin-right: 5px;
+                    width: 164px;
+                    height: 36px;
+
+
+                    .name {
+                        font-family: $fusion-family;
+                        font-size: 14px;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: normal;
+                        letter-spacing: normal;
+                        color: #8c91a2;
+
+                    }
+
+                    .icon {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        margin-right: 0.8rem;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        // background-color: rgb(223, 223, 223);
+                    }
+
+                    &.active {
+
+                        background-color: #21242e;
+
+                        .name {
+                            color: $primary-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        .router-container {
+            width: 100%;
+
+
+            &.active {
+                width: 100%;
+            }
+
+            .header-bar-container {
+                width: 100%;
+                height: 7vh;
+                background-color: #ffffff;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: fixed;
+                margin-bottom: 2vh;
+
+                .search-container {
+                    width: 60%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: white;
+                }
+
+                .at-container {
+                    width: 20%;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: flex-end;
+
+                    .avatar-container {
+                        width: 4rem;
+                        height: 4rem;
+                        border-radius: 50%;
+                        background-color: $primary-color;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 2.5rem;
+                        overflow: hidden;
+                        cursor: pointer;
+                        border: 0.2rem solid $primary-color;
+                        color: white;
+                    }
+                }
+            }
+
+            .container {
+                width: 100%;
+                height: 100%;
+                // margin-top: 1%;
+                // padding: 1rem 2rem 0 2.4rem;
+                overflow: auto;
+                background-color: $grey-010;
+
+            }
+
+            .container::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+}

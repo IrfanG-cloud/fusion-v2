@@ -1,0 +1,225 @@
+@import "./../principles/variables";
+@import "../principles/mixins";
+
+// Buttons
+.btn-primary {
+    width: 100%;
+    background-color: $primary-color;
+    color: $white;
+    display: flex;
+    height: 5.6rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: $radius-12;
+    font-size: $font-size-16;
+    margin-top: var(--mt);
+    font-family: $fusion-family-bold;
+    // font-weight: 600;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: $color-primary-dark;
+    }
+}
+
+.btn-primary-disabled {
+    width: 100%;
+    background-color: $primary-color-diabled;
+    color: $white;
+    display: flex;
+    height: 5.6rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: $radius-12;
+    font-size: $font-size-16;
+    margin-top: var(--mt);
+    font-family: $fusion-family-bold;
+    // font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-secandry {
+    background-color: $primary-color;
+    color: $white;
+    border-radius: 5rem;
+    height: 3.6rem;
+    padding: 0rem 2rem;
+    display: grid;
+    place-items: center;
+    font-size: 1.3rem;
+
+    &:hover {
+        background-color: $color-primary-dark;
+        color: $white;
+        cursor: pointer;
+    }
+}
+
+.error-message {
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.7rem;
+    // margin-left: 1rem;
+}
+
+// LINKS TABS
+
+.link-tabs-container {
+    display: flex;
+    margin-bottom: 1.6rem;
+    margin-top: 5rem;
+
+    .link-tab {
+        cursor: pointer;
+        padding: 0.8rem 1.6rem;
+
+        font-size: 1.4rem;
+        color: $grey-text;
+
+        &.active {
+            color: $primary-color;
+            // background-color: $primary-color;
+            border-bottom: 0.3rem solid $primary-color;
+        }
+    }
+}
+
+.tab-items,
+.tab-avatar {
+    @include flexCenter;
+    list-style: none;
+
+    &>a,
+    .icon-container {
+        @include flexCenter;
+        position: relative;
+        padding: 0 1.6rem;
+        //font-size:1.4rem;
+        color: $grey-text;
+        text-decoration: none;
+
+        p {
+            margin-left: 1rem;
+        }
+    }
+}
+
+
+.dropdown-btn {
+    outline: none;
+    border: none;
+    color: $grey-text;
+    background-color: $white;
+    font-size: 1.3rem;
+    position: relative;
+    position: infront;
+    margin-left: 3.6rem;
+
+    span {
+        font-size: 1.3rem;
+        margin-left: 0.4rem;
+    }
+}
+
+.dashboard-header-skeleton {
+    .left {
+        h2 {
+            width: 133px;
+            height: 21px;
+            margin: 0 0 8px;
+            border-radius: 11px;
+        }
+
+        p {
+            width: 74px;
+            height: 11px;
+            margin: 8px 59px 0 0;
+            border-radius: 9px;
+        }
+    }
+
+    .right .btn-skeleton {
+        width: 108px;
+        height: 32px;
+        display: block;
+        outline: none;
+        border: none;
+        border-radius: 3px;
+    }
+}
+
+.dashboard-layout {
+    ul {
+        display: flex;
+    }
+
+    // li{
+    //     list-style:none;
+    // }
+    .dashboard-header {
+        @include flexBetween;
+        padding: 3.2rem 0;
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.6rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: $grey-text;
+        }
+    }
+}
+
+.search-input {
+    outline: none;
+    border: none;
+    margin-left: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #f3f3f3;
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+}
+
+.Divider {
+    width: 100%;
+    height: 0.2rem;
+    margin: 1rem 0rem 1rem 0rem;
+    border-radius: 1px;
+    background-color: #efefef;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: $primary-color !important;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: $white !important;
+}
+
+// ::ng-deep .mat-slide-toggle-bar {
+//     width: 44px !important;
+//     height: 24px !important;
+//     border-radius: 14px !important;
+//     background-color: #e3e3e3 !important;
+// }
+
+// ::ng-deep .mat-slide-toggle-thumb {
+//     width: 20px !important;
+//     height: 20px !important;
+//     background-color: #fff !important;
+// }
+
+// ::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container {
+//     transform: translate3d(18px, 0, 0) !important;
+// }
+
+// ::ng-deep .mat-slide-toggle-thumb-container {
+//     width: 20px !important;
+//     height: 20px !important;
+//     top: -3px !important;
+// }

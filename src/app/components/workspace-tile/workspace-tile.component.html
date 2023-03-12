@@ -1,0 +1,44 @@
+<div class="project-tile" (click)="selectWorkspace()">
+    <!-- for project menu button icon -->
+    <div class="top-menu-container">
+        <div class="shape-container" (click)="openDetails($event)">
+            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <g fill="none" fill-rule="evenodd">
+                    <path d="M0 0h16v16H0z" />
+                    <path
+                        d="M4 9.333c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 2.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.941.391c.262.261.392.575.392.942s-.13.68-.392.941c-.26.262-.574.392-.941.392zm4 0c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 6.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941A1.284 1.284 0 0 1 8 9.333zm4 0c-.367 0-.68-.13-.942-.392A1.283 1.283 0 0 1 10.667 8c0-.367.13-.68.391-.942.261-.26.575-.391.942-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941a1.284 1.284 0 0 1-.942.392z"
+                        fill="#000" fill-rule="nonzero" />
+                </g>
+            </svg>
+
+        </div>
+    </div>
+
+
+    <!-- for showing project platform type logo  -->
+    <div class="icon">
+        PR
+    </div>
+
+
+    <!-- show project identifier  -->
+
+    <span class="project-name">{{ data?.ws_title }} </span>
+    <div class="dflex-row">
+        <div class="dflex-row">
+            <span class="-Projects">
+                12 Projects
+            </span>
+        </div>
+        <div class="dflex-row">
+            <span class="-Projects">
+                {{data?.ws_members}} Members
+            </span>
+        </div>
+    </div>
+    <span class="Device">
+        {{data?.member_role_type}}
+    </span>
+
+
+</div>

@@ -1,0 +1,770 @@
+@import "../../../../../../assets/styling/dashboard_layout.scss";
+
+.Project-createion-main {
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+    padding: 1.5rem 2rem 0 2.4rem;
+
+    .header-title {
+        height: 18px;
+        font-family: "HelveticaNeue";
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $black;
+    }
+
+    .What-is-Your-Project {
+        height: 28px;
+        margin: 0 0 8px;
+        font-family: 'HelveticaNeue';
+        font-size: $font-size-24;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #000;
+    }
+
+    .Lorem-ipsum-dolor-si {
+        font-family: "HelveticaNeue";
+        font-size: $font-size-16;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #9f9f9f;
+    }
+
+    .Rectangles {
+        width: 432px;
+        height: 108px;
+        margin: 32px 0px 16px 0;
+        padding: 24px 24px 24px;
+        border-radius: 12px;
+        background-color: #f7f9fb;
+        cursor: pointer;
+
+        &.small {
+            height: 94px;
+        }
+
+        &.active {
+            border: 1px solid $primary-color;
+        }
+
+        .left {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .inner-icon {
+                width: 28px;
+                height: 28px;
+                margin: 0 24px 32px 0;
+                object-fit: contain;
+            }
+
+            .title-container {
+                display: flex;
+                flex-direction: column;
+                margin-left: 10px;
+
+                .text {
+                    margin: 0 0 8px;
+                    font-family: "HelveticaNeue";
+                    font-size: 20px;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    color: #373737;
+                }
+
+                .text-description {
+                    margin: 8px 0 0;
+                    font-family: "HelveticaNeue";
+                    font-size: 12px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    color: $grey-080;
+                }
+            }
+        }
+    }
+
+    .Project-Create-Screen {
+        width: 100%;
+        height: 100%;
+        margin-top: 3rem;
+        padding: 5rem;
+        border-radius: 20px;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .content-screen {
+            width: 100%;
+
+            .half-width {
+                width: 50%;
+
+
+                .input-title {
+                    width: 100%;
+                    height: 16px;
+                    font-family: "HelveticaNeue";
+                    font-size: 14px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    color: $grey-080;
+                }
+
+                .input-text {
+                    color: $black;
+                    font-family: "HelveticaNeue-Medium";
+                    font-size: 16px;
+                    margin-bottom: 17px;
+                    width: 80%;
+                    height: 46px;
+                    margin-top: 16px;
+                    padding: 13px 12px 11px 16px;
+                    border-radius: 8px;
+                    border: solid 1px #e6e6e6;
+                    background-color: $grey-020;
+                }
+
+                .flex-row {
+
+                    display: flex;
+                    width: 80%;
+
+                    .sand-box {
+                        cursor: pointer;
+                        width: 100%;
+                        height: 101px;
+                        margin: 12px 16px 0 0;
+                        padding: 16px 3px 16px 16px;
+                        border-radius: 8px;
+                        border: solid 1px $grey-020;
+                        background-color: #f7f9fb;
+
+
+
+                        &.active {
+                            background-color: #4684f8;
+                        }
+
+
+
+                        .box-title {
+                            margin-top: 5px;
+                            font-family: "HelveticaNeue-Medium";
+                            font-size: 16px;
+                            font-weight: normal;
+                            font-stretch: normal;
+                            font-style: normal;
+                            line-height: normal;
+                            letter-spacing: normal;
+                            color: $black;
+
+                            &.active {
+                                color: white;
+                            }
+                        }
+
+                        .box-description {
+                            margin-top: 4px;
+                            font-family: "HelveticaNeue";
+                            font-size: 12px;
+                            font-weight: normal;
+                            font-stretch: normal;
+                            font-style: normal;
+                            line-height: normal;
+                            letter-spacing: normal;
+                            color: $grey-080;
+
+                            &.active {
+                                color: #ccdeff;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .second-half {
+                width: 40%;
+
+                .test-integration {
+                    height: 421px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                    padding: 32px 45px 32px 45px;
+                    border-radius: 8px;
+                    background-color: #eef2f8;
+                }
+
+                .test-title {
+                    margin: 0 0 15px;
+                    font-family: "HelveticaNeue-Medium";
+                    font-size: 20px;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    text-align: center;
+                    color: #5c5f62;
+                }
+
+                .test-description {
+                    margin: 15px 0 15px;
+                    font-family: "HelveticaNeue";
+                    font-size: 12px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    text-align: center;
+                    color: #5c5f62;
+                }
+
+                .test-icon {
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 20px;
+                }
+
+                .test-btn {
+                    width: 100%;
+                    height: 32px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 16px;
+                    background-color: $blue-100;
+                    color: #ffffff;
+                }
+
+            }
+        }
+
+        .bottom-step-indicator {
+            width: 712px;
+            height: 60px;
+            margin-top: 5vh;
+            margin-bottom: 3vh;
+            padding: 32px;
+            border-radius: 60px;
+            box-shadow: 0 31px 44px 0 rgba(0, 0, 0, 0.05);
+            border: solid 1px #f4f4f4;
+            background-color: #16181f;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            .indicator {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+
+                .Oval-Copy {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 16px;
+                    margin: 2px;
+                    background-color: #ffffff;
+
+                    &.active {
+                        background-color: $primary-color;
+                    }
+                }
+            }
+
+            .title {
+
+                font-family: 'HelveticaNeue';
+                font-size: 16px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                text-align: center;
+                color: #dedede;
+            }
+
+            .btn {
+                display: flex;
+                gap: 5px;
+            }
+
+            .btn-skip {
+                font-size: $font-size-12;
+                padding: 3px 14px 3px 14px;
+                border-radius: 30px;
+                cursor: pointer;
+                background-color: $primary-color;
+                color: white
+
+            }
+
+            .btn-next {
+                font-size: $font-size-12;
+                padding: 3px 14px 3px 14px;
+                border-radius: 30px;
+                cursor: pointer;
+                background-color: $primary-color;
+                color: white
+            }
+      
+        }
+
+        .icon {
+            width: 6rem;
+            height: 6rem;
+            margin: 0 60.4rem 2.4rem 0;
+            object-fit: contain;
+        }
+
+
+
+        .Rectangle {
+            margin-top: 2rem;
+            width: 432px;
+            height: 86px;
+            border-radius: 12px;
+            background-color: #fff;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            &.active {
+                border: 1px solid $primary-color;
+            }
+
+            .left {
+                width: 70%;
+                height: 86px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-left: 3rem;
+
+                .title-container {
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 10px;
+                }
+
+                .text {
+                    width: 200px;
+                    font-size: $font-size-18;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    color: #373737;
+                }
+
+                .text-description {
+                    width: 200px;
+                    height: 14px;
+                    margin: 8px 0 0;
+                    font-family: "HelveticaNeue";
+                    font-size: 12px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    color: $grey-080;
+                }
+
+                .Oval {
+                    width: 2rem;
+                    height: 2rem;
+                    border: solid 1px #d1d1d1;
+                    background-color: #fff;
+                    border-radius: 60px;
+                    margin-right: 2.4rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &.active {
+                        border: 0.2rem solid $primary-color;
+
+                        .inner {
+                            background-color: $primary-color;
+                            width: 1rem;
+                            height: 1rem;
+                            border-radius: 60px;
+                        }
+                    }
+                }
+            }
+
+            .right {
+                width: 30%;
+                height: 84px;
+                border-radius: 12px 12px 12px 12px;
+                background-color: #f5f5f5;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &.active {
+                    background-color: #eaf4ea;
+                }
+            }
+        }
+    }
+
+    .half-width {
+        width: 50%;
+        margin-top: var(--mt);
+
+        .input-feild {
+            width: 100%;
+            margin-top: 2vh;
+        }
+
+        .label {
+            font-size: $font-size-16;
+            font-weight: 500;
+            color: $grey-text;
+        }
+
+        .text-input-feild {
+            font-size: $font-size-16;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        ::ng-deep .mat-form-field-underline {
+            display: none;
+        }
+
+        ::ng-deep .mat-form-field-appearance-fill {
+            .mat-form-field-flex {
+                background-color: #f5f5f5 !important;
+                padding: 1rem 2rem !important;
+            }
+        }
+
+        ::ng-deep .mat-form-field-infix {
+            padding: 0rem !important;
+        }
+
+        ::ng-deep .ng-invalid {
+            .email-validate {
+                border: 1px solid #fa0404 !important;
+                border-radius: $radius-6;
+            }
+        }
+
+        ::ng-deep .mat-form-field-appearance-fill {
+            .mat-form-field-label {
+                color: #000000;
+            }
+        }
+
+        ::ng-deep .mat-form-field-label {
+            .forget-password {
+                background-color: #000;
+            }
+        }
+
+        ::ng-deep .mat-input-element {
+            color: #000 !important;
+        }
+
+        ::ng-deep .mat-form-field {
+            .mat-form-field-wrapper {
+                padding-bottom: 0rem !important;
+            }
+        }
+
+        ::ng-deep .mat-form-field-flex {
+            border-radius: $radius-6 !important;
+        }
+
+        ::ng-deep .mat-form-field.mat-focused {
+            color: #000000 !important;
+            border: 1px solid $primary-color;
+            border-radius: $radius-6;
+            background-color: #f5f5f5;
+        }
+    }
+
+    .filters-bar {
+        width: fit-content;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        margin-top: 3rem;
+        padding-left: 5px;
+        border-radius: 40px;
+        background-color: #ececec;
+        cursor: pointer;
+
+        .filter-tile {
+            background-color: --(color);
+            padding: 0.5rem 1rem;
+            border-radius: 3rem;
+            margin-right: 0.7rem;
+
+            &:hover {
+                background-color: white;
+            }
+
+            &.active {
+                background-color: white;
+            }
+        }
+    }
+
+    .content-container {
+        margin-top: 4rem;
+
+        .Lorem-ipsum-dolor {
+            font-size: 12px;
+            font-family: "HelveticaNeue-Medium";
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #000000;
+        }
+
+        .Rectangle-code {
+            width: 100%;
+            margin: 24px 0 0;
+            padding: 20px 38px 20px 20px;
+            border-radius: 12px;
+            background-color: #f4f4f4;
+            margin-bottom: 2rem;
+
+            .flex-rectangle {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .copy {
+                    width: 80px;
+                    height: 32px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 16px;
+                    background-color: $blue-050;
+                    color: $blue-100;
+                    cursor: pointer;
+                }
+
+                .Pod-Fusioninspect {
+
+                    margin: 0 18px 28px 0;
+                    font-family: "HelveticaNeue";
+                    font-size: 12px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    color: $grey-100;
+                }
+            }
+        }
+    }
+}
+
+
+
+.phone-icon {
+    width: 242.9px;
+    height: 492.8px;
+    margin: 33.5px 707.5px 38.7px 0;
+}
+
+.btntoggle {
+    width: 89px;
+    height: 15px;
+    font-family: "HelveticaNeue";
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #4f4f4f;
+}
+
+.Lorem-ipsum-dolor-si1 {
+    // margin: 0 387px 24px 0;
+    font-family: "HelveticaNeue";
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+
+}
+
+.half-description {
+    height: 18px;
+    margin-top: 12px;
+    font-family: "HelveticaNeue";
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $grey-080;
+}
+
+
+.Rectangle1 {
+    margin-top: 2rem;
+    width: 432px;
+    height: 86px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &.active {
+        border: 1px solid $primary-color;
+    }
+
+    .left {
+        width: 70%;
+        height: 86px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 3rem;
+
+        .title-container {
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+        }
+
+        .text {
+            width: 200px;
+            // font-family: HelveticaNeue;
+            font-size: $font-size-18;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #373737;
+        }
+
+        .text-description {
+            width: 200px;
+            height: 14px;
+            margin: 8px 0 0;
+            font-family: "HelveticaNeue";
+            font-size: 12px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: $grey-080;
+        }
+
+        .Oval {
+            width: 2rem;
+            height: 2rem;
+            border: solid 1px #d1d1d1;
+            background-color: #fff;
+            border-radius: 60px;
+            margin-right: 2.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &.active {
+                border: 0.2rem solid $primary-color;
+
+                .inner {
+                    background-color: $primary-color;
+                    width: 1rem;
+                    height: 1rem;
+                    border-radius: 60px;
+                }
+            }
+        }
+    }
+
+    .right {
+        width: 30%;
+        height: 84px;
+        border-radius: 12px;
+        background-color: rgb(228, 228, 228);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.active {
+            background-color: #eaf4ea;
+        }
+    }
+
+
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.half-overflow {
+    overflow: hidden;
+}
+
+.learnmore {
+    color: #4684f8;
+}

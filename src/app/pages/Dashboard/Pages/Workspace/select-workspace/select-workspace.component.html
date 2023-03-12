@@ -1,0 +1,80 @@
+<!-- Centered layout as in v2 designs -->
+
+<div class="layout-centered">
+
+    <div class="container">
+        <div class="logo-container">
+            <img src="./../../../../assets/images/logo.png" alt="logo" class="logo-image" />
+            <div class="logo-title">Fusion</div>
+        </div>
+        
+        <div class="user-title">Select a workspace to continue</div>
+        <div class="gradient-container-top" *ngIf="isShowBlur">
+        </div>
+        <div class="content-container">
+
+            <div class="Workspace-container">
+
+                <div class="workspaces" *ngFor="let workspace of userWorkSpaces?.owned_workspaces">
+                    <div class="workspace-tile" (click)="selectWorkspace(workspace)" [ngClass]="{
+              active: workspace.ws_kuid == selectedWorkspace.ws_kuid
+            }">
+                        <div class="workspace-icon">
+                            {{ workspace?.ws_title.charAt(0) + workspace?.ws_title.charAt(1) }}
+                        </div>
+                        <div>
+                            <div class="workspace-title">
+                                {{ workspace.ws_title }}
+
+                                <span class="tag">Owner</span>
+                            </div>
+                            <div class="workspace-members">{{workspace.ws_members
+                            }} members</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="workspaces" *ngFor="let workspace of userWorkSpaces?.shared_workspaces">
+                    <div class="workspace-tile" (click)="selectWorkspace(workspace)">
+                        <div class="workspace-icon">
+                            {{ workspace.ws_title.charAt(0) + workspace.ws_title.charAt(1) }}
+                        </div>
+                        <div>
+                            <div class="workspace-title">
+                                {{ workspace.ws_title }}
+
+                                <span class="tag">Shared</span>
+                            </div>
+                            <div class="workspace-members">{{workspace.ws_members
+}} members</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="error-message" *ngIf="error">
+                    Please select at least one workspace to continue
+                </div>
+
+            </div>
+        </div>
+
+        <div class="gradient-container" *ngIf="isShowBlur" >
+        </div>
+        <div class="btn-primary" *ngIf="disabled" style="--mt: 3rem" (click)="onContinue()">
+            Continue
+        </div>
+        <div class="btn-primary-disabled" *ngIf="!disabled" style="--mt: 3rem">
+            Continue
+        </div>
+    </div>
+
+
+    <!-- loader -->
+    <div *ngIf="_commonService.isLoading" class="spinner-div">
+        <div class="loading-spinner-ripple">
+            <div class="spinner">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+</div>

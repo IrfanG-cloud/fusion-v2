@@ -1,0 +1,42 @@
+<div class="container-wrapper">
+    <div class="heading">
+        Configuration
+    </div>
+    <div class="sub-heading">
+        You can find all workspace settings here
+    </div>
+
+    <div class="Rectangle-container">
+        <div class="Project-Details">
+            Upgrade Project
+        </div>
+
+        <div class="filters-bar">
+            <div class="filter-tile" [ngClass]="{ active: selectedtype === 'objective' }">
+                <div class="btntoggle">Ios-objective</div>
+            </div>
+            <div class="filter-tile" [ngClass]="{ active: selectedtype === 'swift' }">
+                <div class="btntoggle">Ios-Swift</div>
+            </div>
+        </div>
+
+
+        <div class="content-container">
+
+            <span class="Lorem-ipsum-dolor">
+                1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </span>
+            <div class="Rectangle-code">
+                <span class="Pod-Fusioninspect"> Pod ‘Fusioninspect’ </span>
+            </div>
+            <span class="Lorem-ipsum-dolor">
+                2. Run pod install in your Xcode project directory. CocoaPods should
+                download and install the SDK and all the required dependencies, and
+                create a new Xcode workspace. Open up this workspace in Xcode.
+            </span>
+
+            <div class="Rectangle-code">
+                <span class="Pod-Fusioninspect"> Pod ‘Fusioninspect’ </span>
+            </div>
+        </div>
+    </div>

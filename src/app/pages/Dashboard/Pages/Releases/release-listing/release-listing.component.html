@@ -1,0 +1,226 @@
+<div class="container">
+    <div class="top-container">
+        <div class="icon-title">
+            Releases
+        </div>
+    </div>
+    <div class="filters-bar-container">
+
+        <div class="search-bar">
+            <input type="text" name="search" placeholder="Search Releases" class="search-input" />
+        </div>
+
+
+        <div class="filters-options" (click)="isShowFiltercontainer()">
+            <img src="../../../../.././../assets/icons/filter-icon.png" class="filter-icon" />
+        </div>
+
+    </div>
+
+    <!-- Releease list Container ----------------------------------------- -->
+
+    <div class="list-container">
+        <div class="list-headers">
+
+            <div class="header-content">
+                VERSION
+            </div>
+            <div class="header-content">
+                FIRST ACTIVITY
+            </div>
+            <div class="header-content">LAST ACTIVITY</div>
+            <div class="header-content">
+                BUG REPORTING
+            </div>
+            <div class="header-content">
+                CRASH REPORTING
+            </div>
+            <div class="right-icon-container">
+
+            </div>
+        </div>
+
+        <div class="list-tile" *ngFor="let release of releaseList">
+            <div class="tile-content-container-version">
+                {{release.version}}
+                <div class="tag">
+                    {{release.status}}
+                </div>
+            </div>
+            <div class="tile-content-container">
+                {{release.first_activity}}
+            </div>
+            <div class="tile-content-container">
+                {{release.last_activity}}
+            </div>
+            <div class="tile-content-container">
+                <label class="switch">
+                    <input type="checkbox" [checked]="release.bug_reporting" (change)="onChange(release)">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="tile-content-container">
+                <label class="switch">
+                    <input type="checkbox" [checked]="release.crash_reporting">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+
+            <div class="right-icon-container" [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
+                <div class="list-tile-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="M0 0h16v16H0z" />
+                            <path
+                                d="M4 9.333c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 2.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.941.391c.262.261.392.575.392.942s-.13.68-.392.941c-.26.262-.574.392-.941.392zm4 0c-.367 0-.68-.13-.941-.392A1.282 1.282 0 0 1 6.667 8c0-.367.13-.68.392-.942.26-.26.574-.391.941-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941A1.284 1.284 0 0 1 8 9.333zm4 0c-.367 0-.68-.13-.942-.392A1.283 1.283 0 0 1 10.667 8c0-.367.13-.68.391-.942.261-.26.575-.391.942-.391s.68.13.942.391c.26.261.391.575.391.942s-.13.68-.391.941a1.284 1.284 0 0 1-.942.392z"
+                                fill="#000" fill-rule="nonzero" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <mat-menu #menu="matMenu">
+                <div class="title" mat-menu-item (click)="showDialog(release)">
+                    <mat-icon>assignment</mat-icon>
+                    <div class="menu-title">Add Release Note</div>
+                </div>
+                <div class="title" mat-menu-item (click)="showDetails(release)">
+                    <mat-icon>horizontal_split</mat-icon>
+                    <div class="menu-title">View Details</div>
+                </div>
+            </mat-menu>
+
+        </div>
+    </div>
+    <!-- ---------------------------------------------------------- -->
+</div>
+
+<div class="filter-menu" *ngIf="showFilterContainer" [ngClass]="{active: showFilterContainer}">
+    <app-bug-filter [showFilterContainer]="showFilterContainer"></app-bug-filter>
+</div>
+
+<div class="show-dialog-container" [ngClass]="{ active: isShowDialog }">
+    <div class="content-container">
+        <div class="top-container">
+            <div class="delete-container">
+
+
+            </div>
+            <div class="cancel-container" (click)="hideDialog()">X</div>
+        </div>
+        <div class="add-release-notes">
+            Add Release Notes
+        </div>
+        <div class="Lorem-ipsum-dolor-si">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eros nibh, tincidunt ac nibh a, condimentum.
+        </div>
+        <div class="input-container">
+            <input type="text" class="input-text" placeholder="Title" />
+        </div>
+        <div class="textarea-container">
+            <textarea rows="6" cols="5" class="text-area-style" placeholder="Enter Release Notes here ..."></textarea>
+        </div>
+
+        <div class="bottom-container">
+            <div></div>
+            <div class="delete-btn">Add</div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="sidepanel" [ngClass]="{active: sidePanelOpen}">
+    <div class="content-panel">
+        <div class="closebtn" (click)="sidePanelOpen=!sidePanelOpen">&times;</div>
+        <div class="top-container">
+            <div class="Activity-History">
+                {{selectedRow.version}}
+            </div>
+
+            <div class="row-container">
+                <div class="left">
+                    Crashes
+                </div>
+                <div class="right">
+                    {{selectedRow.crashes}}
+                </div>
+            </div>
+            <div class="row-container">
+                <div class="left">
+                    Bugs
+                </div>
+                <div class="right">
+                    {{selectedRow.bugs}}
+                </div>
+            </div>
+            <div class="row-container">
+                <div class="left">
+                    Downloads
+                </div>
+                <div class="right">
+                    {{selectedRow.downloads}}
+                </div>
+            </div>
+            <div class="row-container">
+                <div class="left">
+                    Release Date
+                </div>
+                <div class="right">
+                    {{selectedRow.release_date}}
+                </div>
+            </div>
+            <div class="row-container">
+                <div class="left">
+                    Last Activity
+                </div>
+                <div class="right">
+                    {{selectedRow.last_activity}}
+                </div>
+            </div>
+
+
+
+            <div class="divider"></div>
+
+        </div>
+
+
+        <div class="detail-container">
+            <div class="Release-Notes">
+                Release Notes
+            </div>
+            <div class="date">
+                12 Jan 2023
+            </div>
+            <div class="Improvements">
+                Improvements
+            </div>
+            <div class="details-seaction">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. <br />
+
+                Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+            </div>
+            <div class="list-container">
+                <ul>
+                    <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                </ul>
+            </div>
+            <div class="details-seaction">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. <br />
+
+                Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+            </div>
+        </div>
+
+    </div>
+</div>

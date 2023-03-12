@@ -1,0 +1,58 @@
+<div class="screen-container">
+
+    <div class="padding-container">
+
+        <div class="heading">
+            Notifications
+        </div>
+
+        <div class="filter-container">
+            <div class="filters">
+                <div class="tile" (click)="onApplyFilter(filter.id)" [ngClass]="{active:filter.id == selectedFilter}" *ngFor="let filter of filters">
+                    {{filter.title}}
+                </div>
+
+            </div>
+            <div class="days">Last 7 Days</div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="list-container" *ngFor="let notification of userNotifications">
+
+        <div class="divider">
+            <div class="date-divider"></div>
+            <div class="date-container">{{notification[0]}}</div>
+        </div>
+        <div class="padding-container">
+
+            <div class="list-tile" *ngFor="let item of notification[1]" [ngClass]="{active:item.isRead==0}">
+                <img src="../../../../../assets/images/avatar.png" class="Mask" />
+                <div>
+                    <p><b>{{item.authorName}}</b> {{item.triggeringSource}} on {{item.sourceType}} you are following</p>
+                    <div class="flex-row">
+                        <img src="../../../../../assets/icons/icon-bug.svg" class="icon" *ngIf="'bug'==item.sourceType" />
+                        <img src="../../../../../assets/icons/icon-bug.svg" class="icon" *ngIf="'assign'==item.sourceType" />
+                        <img src="../../../../../assets/icons/icon-crash.svg" class="icon" *ngIf="'crash'==item.sourceType" />
+                        <div>{{item.activityTime | date: 'h:mm: a'}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div *ngIf="commonService.isLoading" class="spinner-div">
+    <div class="loading-spinner-ripple">
+        <div class="spinner">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,155 @@
+<div class="screen-container">
+    <div class="top-container">
+        <!-- <img src="../../../../../../assets/icons/home_active.png" class="icon" /> -->
+        <div class="dashboard">
+            Dashboard
+        </div>
+    </div>
+
+    <div class="bugs-containers">
+
+        <div class="card">
+            <div class="Oval">
+                <img src="../../../../../../assets/filters/icon-s-idebar-issues-active.svg">
+            </div>
+            <div class="innercard">
+                <div class="title-card">
+                    Bugs
+                </div>
+                <span class="number">12,000</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="Oval">
+                <img src="../../../../../../assets/filters/icon-s-idebar-crashes-active.svg">
+            </div>
+            <div class="innercard">
+                <div class="title-card">
+                    Crashes
+                </div>
+                <span class="number">12,000</span>
+            </div>
+
+        </div>
+
+        <div class="card">
+            <div class="Oval">
+                <img src="../../../../../../assets/filters/icon-s-idebar-quality-management-active.svg">
+            </div>
+            <div class="innercard">
+                <div class="title-card">
+                    Active Releases
+                </div>
+                <span class="number">12,000</span>
+            </div>
+
+        </div>
+
+        <div class="card">
+            <div class="Oval">
+                <img src="../../../../../../assets/filters/icon-s-idebar-rating-engine-active.svg">
+            </div>
+            <div class="innercard">
+                <div class="title-card">
+                    Average Rating
+                </div>
+                <span class="number">12,000</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="graph-container">
+        <div class="graph">
+            <div class="title">
+                Crashes
+            </div>
+            <div class="subheading">
+                Occurance Over Time
+            </div>
+        </div>
+
+        <div class="audience">
+            <div class="title">
+                Audience
+            </div>
+            <div class="subheading">
+                Audience segment by OS
+            </div>
+        </div>
+    </div>
+
+    <div class="graph-container">
+        <div class="userFeedback">
+            <div class="top">
+                <div class="title">
+                    Users Feedback
+                </div>
+                <div class="subheading">
+                    Application Rating
+                </div>
+            </div>
+
+
+            <div class="list-container">
+                <div class="list-header">
+                    <div class="header">
+                        FEEDBACK
+                    </div>
+                    <div class="header">
+                        RATING
+                    </div>
+                    <div class="header">
+                        VERSION
+                    </div>
+                </div>
+                <div class="list-tile" *ngFor="let i of usersFeedBack">
+                    <div class="tile">
+                        {{i.feedback}}
+                    </div>
+                    <div class="tile">
+                        <div class="rating-stars">
+                            <div *ngFor="let r of [1,2,3,4,5]">
+                                <img src="../../../../../../assets/icons/star_inactive.png" *ngIf="i.rating<r" class="star-icon" />
+                                <img src="../../../../../../assets/icons/star.png" *ngIf="i.rating>=r" class="star-icon" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile">
+                        {{i.version}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="member">
+            <div class="title">
+                Members
+            </div>
+
+            <div class="subheading">
+                Project Member
+            </div>
+            <div class="rectangle" *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+                <div class="rectangle-container">
+                    <img class="mask" src="../../../../../../assets/images/avatar.png">
+                    <div class="rectangle-container1">
+                        <div class="member-name">
+                            Kevin Oliver
+                        </div>
+                        <div class="member-description">
+                            Kevin.Oliver@polarbear.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
